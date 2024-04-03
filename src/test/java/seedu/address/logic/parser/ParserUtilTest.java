@@ -6,10 +6,12 @@ import static seedu.address.logic.parser.ParserUtil.MESSAGE_INVALID_INDEX;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_STUDENT;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
@@ -25,13 +27,17 @@ public class ParserUtilTest {
     private static final String INVALID_PHONE = "+651234";
     private static final String INVALID_ADDRESS = " ";
     private static final String INVALID_EMAIL = "example.com";
-    private static final String INVALID_LESSON = "#MATH|10-05-2002|13:00|0";
+    private static final String INVALID_LESSON = "#MATH|10-05-2002|13:00";
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_PHONE = "123456";
     private static final String VALID_ADDRESS = "123 Main Street #0505";
     private static final String VALID_EMAIL = "rachel@example.com";
-    private static final String VALID_LESSON_1 = "Maths|10-05-2002|13:00|0";
-    private static final String VALID_LESSON_2 = "Science|10-05-2002|13:00|0";
+    private static final String VALID_LESSON_1 = "Maths|10-05-2002|13:00";
+    private static final String VALID_LESSON_2 = "Science|10-05-2002|13:00";
+    private static final String VALID_SUBJECT_MATHS = "Maths";
+    private static final String VALID_SUBJECT_SCIENCE = "Science";
+    private static final LocalDate VALID_DATE_1 = LocalDate.parse("10-05-2002", Lesson.DATE_FORMATTER);
+    private static final LocalTime VALID_TIME_1 = LocalTime.parse("13:00", Lesson.TIME_FORMATTER);
 
     private static final String WHITESPACE = " \t\r\n";
 
@@ -57,7 +63,7 @@ public class ParserUtilTest {
 
     @Test
     public void parseName_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseName((String) null));
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseName(null));
     }
 
     @Test
@@ -80,7 +86,7 @@ public class ParserUtilTest {
 
     @Test
     public void parsePhone_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parsePhone((String) null));
+        assertThrows(NullPointerException.class, () -> ParserUtil.parsePhone(null));
     }
 
     @Test
@@ -103,7 +109,7 @@ public class ParserUtilTest {
 
     @Test
     public void parseAddress_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseAddress((String) null));
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseAddress(null));
     }
 
     @Test
@@ -126,7 +132,7 @@ public class ParserUtilTest {
 
     @Test
     public void parseEmail_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseEmail((String) null));
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseEmail(null));
     }
 
     @Test
@@ -169,16 +175,17 @@ public class ParserUtilTest {
     }
 
     @Test
-    public void parseLessons_emptyCollection_returnsEmptySet() throws Exception {
+    public void parseLessons_emptyCollection_returnsEmptyList() throws Exception {
         assertTrue(ParserUtil.parseLessons(Collections.emptyList()).isEmpty());
     }
 
     @Test
-    public void parseLessons_collectionWithValidTags_returnsTagSet() throws Exception {
-        Set<Lesson> actualLessonSet = ParserUtil.parseLessons(Arrays.asList(VALID_LESSON_1, VALID_LESSON_2));
-        Set<Lesson> expectedLessonSet = new HashSet<Lesson>(Arrays.asList(new Lesson(VALID_LESSON_1),
-                new Lesson(VALID_LESSON_2)));
+    public void parseLessons_collectionWithValidLessons_returnsLessonList() throws Exception {
+        List<Lesson> actualLessonList = ParserUtil.parseLessons(Arrays.asList(VALID_LESSON_1, VALID_LESSON_2));
+        List<Lesson> expectedLessonSet = new ArrayList<>(Arrays.asList(
+                new Lesson(VALID_SUBJECT_MATHS, VALID_DATE_1, VALID_TIME_1),
+                new Lesson(VALID_SUBJECT_SCIENCE, VALID_DATE_1, VALID_TIME_1)));
 
-        assertEquals(expectedLessonSet, actualLessonSet);
+        assertEquals(expectedLessonSet, actualLessonList);
     }
 }

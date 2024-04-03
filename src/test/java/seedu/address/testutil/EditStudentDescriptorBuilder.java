@@ -1,8 +1,8 @@
 package seedu.address.testutil;
 
-import java.util.Set;
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import seedu.address.logic.commands.EditCommand.EditStudentDescriptor;
 import seedu.address.model.student.Address;
@@ -13,6 +13,7 @@ import seedu.address.model.student.Phone;
 import seedu.address.model.student.Remark;
 import seedu.address.model.student.Student;
 import seedu.address.model.student.Subject;
+import seedu.address.storage.JsonAdaptedLesson;
 
 
 /**
@@ -76,15 +77,6 @@ public class EditStudentDescriptorBuilder {
         return this;
     }
     /**
-     * Parses the {@code lessons} into a {@code Set<Lesson>} and set it to the {@code EditStudentDescriptor}
-     * that we are building.
-     */
-    public EditStudentDescriptorBuilder withLessons(String... lessons) {
-        Set<Lesson> lessonSet = Stream.of(lessons).map(Lesson::new).collect(Collectors.toSet());
-        descriptor.setLessons(lessonSet);
-        return this;
-    }
-    /**
      * Sets the {@code Subject} of the {@code EditStudentDescriptor} that we are building.
      */
     public EditStudentDescriptorBuilder withSubject(String subject) {
@@ -100,5 +92,16 @@ public class EditStudentDescriptorBuilder {
     }
     public EditStudentDescriptor build() {
         return descriptor;
+    }
+
+    /**
+     * Sets the {@code Lessons} of the {@code EditStudentDescriptor} that we are building.
+     */
+    public EditStudentDescriptorBuilder withLessons(String... lessons) {
+        List<Lesson> lessonList = Arrays.stream(lessons)
+                .map(lesson -> JsonAdaptedLesson.parseJsonLesson(lesson))
+                .collect(Collectors.toList());
+        descriptor.setLessons(lessonList);
+        return this;
     }
 }

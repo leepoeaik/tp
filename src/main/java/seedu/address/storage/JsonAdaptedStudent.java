@@ -1,9 +1,7 @@
 package seedu.address.storage;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -65,7 +63,7 @@ class JsonAdaptedStudent {
         subject = source.getSubject().value;
         remark = source.getRemark().value;
         lessons.addAll(source.getLessons().stream()
-                .map(JsonAdaptedLesson::new)
+                .map(lesson -> new JsonAdaptedLesson(lesson.getJsonValue()))
                 .collect(Collectors.toList()));
     }
 
@@ -75,9 +73,9 @@ class JsonAdaptedStudent {
      * @throws IllegalValueException if there were any data constraints violated in the adapted student.
      */
     public Student toModelType() throws IllegalValueException {
-        final List<Lesson> lessonList = new ArrayList<>();
+        final List<Lesson> modelLessons = new ArrayList<>();
         for (JsonAdaptedLesson lesson : lessons) {
-            lessonList.add(lesson.toModelType());
+            modelLessons.add(lesson.toModelType());
         }
 
         if (name == null) {
@@ -110,15 +108,11 @@ class JsonAdaptedStudent {
         if (!Address.isValidAddress(address)) {
             throw new IllegalValueException(Address.MESSAGE_CONSTRAINTS);
         }
-        if (remark == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Remark.class.getSimpleName()));
-        }
         if (subject == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Subject.class.getSimpleName()));
         }
         final Remark modelRemark = new Remark(remark);
         final Address modelAddress = new Address(address);
-        final Set<Lesson> modelLessons = new HashSet<>(lessonList);
         final Subject modelSubject = new Subject(subject);
 
         return new Student(modelName, modelPhone, modelEmail, modelAddress, modelSubject,
