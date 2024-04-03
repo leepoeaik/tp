@@ -33,11 +33,17 @@ public class ScheduleListPanel extends UiPart<Region> {
     public ScheduleListPanel(ObservableList<Student> studentList) {
         super(FXML);
 
-        scheduleListView.setItems(TransformList(studentList));
+        scheduleListView.setItems(transformList(studentList));
         scheduleListView.setCellFactory(listView -> new ScheduleListViewCell());
     }
 
-    public ObservableList<Pair<Student, Lesson>> TransformList(ObservableList<Student> studentList) {
+    /**
+     * Extracts lessons from studentList
+     * Adds the lessons together with student as a pair and sorts it
+     * @param studentList observable list of students
+     * @return an observable list of a pair of students and lessons
+     */
+    public ObservableList<Pair<Student, Lesson>> transformList(ObservableList<Student> studentList) {
         List<Pair<Student, Lesson>> scheduleList = new ArrayList<>();
         for (Student student : studentList) {
             List<Lesson> studentLesson = student.getLessons();
