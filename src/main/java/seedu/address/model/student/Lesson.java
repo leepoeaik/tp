@@ -163,6 +163,6 @@ public class Lesson {
      * Format state as text for viewing.
      */
     public String toString() {
-        return '[' + value + ']';
+        return this.subject + "  " + this.date.toString() + "  " + this.time;
     }
 }
