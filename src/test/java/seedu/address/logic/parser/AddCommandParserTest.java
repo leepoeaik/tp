@@ -138,7 +138,7 @@ public class AddCommandParserTest {
     @Test
     public void parse_optionalFieldsMissing_success() {
         // zero lessons
-        Student expectedStudent = new StudentBuilder(AMY).build();
+        Student expectedStudent = new StudentBuilder(AMY).withLessons().build();
         assertParseSuccess(parser, NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY
                          + ADDRESS_DESC_AMY + SUBJECT_DESC_MATHS,
                 new AddCommand(expectedStudent));

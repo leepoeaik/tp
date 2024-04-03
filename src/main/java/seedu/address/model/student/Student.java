@@ -2,10 +2,9 @@ package seedu.address.model.student;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.util.Collections;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
 /**
@@ -21,15 +20,15 @@ public class Student {
     // Data fields
     private final Address address;
     private final Remark remark;
-    private final Set<Lesson> lessons = new HashSet<>();
+    private List<Lesson> lessons = new ArrayList<>();
     private final Subject subject;
 
     /**
      * Student constructor with all fields.
      */
     public Student(Name name, Phone phone, Email email, Address address, Subject subject,
-                  Remark remark, Set<Lesson> lessons) {
-        requireAllNonNull(name, phone, email, address, subject, lessons);
+                  Remark remark, List<Lesson> lessons) {
+        requireAllNonNull(name, phone, email, address, subject);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -37,6 +36,19 @@ public class Student {
         this.subject = subject;
         this.lessons.addAll(lessons);
         this.remark = remark;
+    }
+    /**
+     * Student constructor with default values for remark and lessons.
+     */
+    public Student(Name name, Phone phone, Email email, Address address, Subject subject) {
+        requireAllNonNull(name, phone, email, address, subject);
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.subject = subject;
+        this.lessons = new ArrayList<>();
+        this.remark = new Remark("");
     }
 
     public Name getName() {
@@ -56,11 +68,10 @@ public class Student {
     }
 
     /**
-     * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
-     * if modification is attempted.
+     * Returns the ArrayList of lessons for the student, this list is mutable.
      */
-    public Set<Lesson> getLessons() {
-        return Collections.unmodifiableSet(lessons);
+    public List<Lesson> getLessons() {
+        return lessons;
     }
 
     public Remark getRemark() {

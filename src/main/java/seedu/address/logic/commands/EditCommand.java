@@ -8,12 +8,9 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
@@ -101,7 +98,7 @@ public class EditCommand extends Command {
         Phone updatedPhone = editStudentDescriptor.getPhone().orElse(studentToEdit.getPhone());
         Email updatedEmail = editStudentDescriptor.getEmail().orElse(studentToEdit.getEmail());
         Address updatedAddress = editStudentDescriptor.getAddress().orElse(studentToEdit.getAddress());
-        Set<Lesson> updatedLessons = editStudentDescriptor.getLessons().orElse(studentToEdit.getLessons());
+        List<Lesson> updatedLessons = editStudentDescriptor.getLessons().orElse(studentToEdit.getLessons());
         Remark updatedRemark = studentToEdit.getRemark();
         Subject updatedSubject = editStudentDescriptor.getSubject().orElse(studentToEdit.getSubject());
 
@@ -142,7 +139,7 @@ public class EditCommand extends Command {
         private Phone phone;
         private Email email;
         private Address address;
-        private Set<Lesson> lessons;
+        private List<Lesson> lessons;
         private Subject subject;
         private Remark remark;
         public EditStudentDescriptor() {}
@@ -159,7 +156,6 @@ public class EditCommand extends Command {
             setLessons(toCopy.lessons);
             setSubject(toCopy.subject);
             setRemark(toCopy.remark);
-            setLessons(toCopy.lessons);
         }
 
         public void setRemark(Remark remark) {
@@ -213,17 +209,16 @@ public class EditCommand extends Command {
          * Sets {@code lessons} to this object's {@code lessons}.
          * A defensive copy of {@code lessons} is used internally.
          */
-        public void setLessons(Set<Lesson> lessons) {
-            this.lessons = (lessons != null) ? new HashSet<>(lessons) : null;
+        public void setLessons(List<Lesson> lessons) {
+            this.lessons = lessons;
         }
 
         /**
-         * Returns an unmodifiable lesson set, which throws {@code UnsupportedOperationException}
-         * if modification is attempted.
+         * Returns an modifiable lesson list,
          * Returns {@code Optional#empty()} if {@code lessons} is null.
          */
-        public Optional<Set<Lesson>> getLessons() {
-            return (lessons != null) ? Optional.of(Collections.unmodifiableSet(lessons)) : Optional.empty();
+        public Optional<List<Lesson>> getLessons() {
+            return Optional.ofNullable(lessons);
         }
 
         public void setSubject(Subject subject) {
