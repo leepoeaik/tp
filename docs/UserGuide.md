@@ -21,6 +21,8 @@ TutorTrack is a **desktop app for tutors to manage their students and scheduled 
   - Mark: Marking a lesson as done
   - Remark: Add remark to a student
   - Delete : Deleting a student
+  - Schedule : Adding a lesson schedule to a student
+  - Mark : Mark a lesson as complete
   - Clear : Clearing all entries 
   - Exit : Exiting the program
   - Saving data
@@ -174,9 +176,39 @@ Format: `delete INDEX`
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd student in TutorTrack.
-![img_4.png](img_4.png)
 * `find Jessica Jane` followed by `delete 1` deletes the 1st person in the results of the `find` command.
-* ![img_5.png](img_5.png)
+
+### Add a lessson schedule : `schedule`
+
+Adds a lesson to a specific student.
+
+Format : `schedule INDEX l/LESSON`
+
+* Adds a lesson to the specified `INDEX`.
+* `INDEX` **must be a positive integer** 1, 2, 3, ...
+* `INDEX` refers to the index number shown in the displayed person list.
+* `LESSON` must be in the format of `dd-mm-yyyy|hh:mm` 
+
+Examples:
+* `schedule 1 l/09-09-2024|10:00` would add a new lesson at 09-09-2024, 10:00 to the first person on the student list.
+
+<img width="1552" alt="image" src="https://github.com/AY2324S2-CS2103T-T16-4/tp/assets/99176866/09b27706-101d-4d7c-b480-4c482c752e31">
+
+### Mark a lessson schedule : `schedule`
+
+Mark a lesson as complete to a specific student and removing it from displaying.
+
+Format : `mark INDEX l/LESSON`
+
+* Adds a lesson to the specified `INDEX`.
+* `INDEX` **must be a positive integer** 1, 2, 3, ...
+* `INDEX` refers to the index number shown in the displayed person list.
+* `LESSON` must be in the format of `dd-mm-yyyy|hh:mm` 
+
+Examples:
+* `mark 1 l/09-09-2024|10:00` would remove a new lesson at 09-09-2024, 10:00 to the first person on the student list.
+
+<img width="1552" alt="image" src="https://github.com/AY2324S2-CS2103T-T16-4/tp/assets/99176866/52f1981d-1e73-4aaf-95fb-ba6e8c2db054">
 
 ### Clearing all entries : `clear`
 
@@ -226,12 +258,16 @@ _Details coming soon ..._
 
 ## Command summary
 
-Action     | Format, Examples
------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS s/SUBJECT [l/LESSON]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 s/Maths`
-**Clear**  | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [l/LESSONS]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List**   | `list`
-**Help**   | `help`
+
+Action      | Format, Examples
+------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+**Add**     | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS s/SUBJECT [l/LESSON]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 s/Maths l/Maths|2024-05-03|10:30`
+**Clear**   | `clear`
+**Delete**  | `delete INDEX`<br> e.g., `delete 3`
+**Edit**    | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [l/LESSONS]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+**Find**    | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
+**Schedule**| `schedule INDEX l/LESSON`
+**Mark**    | `mark INDEX l/LESSON`
+**List**    | `list`
+**Help**    | `help`
+
