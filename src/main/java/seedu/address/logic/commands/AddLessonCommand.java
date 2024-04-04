@@ -79,6 +79,6 @@ public class AddLessonCommand extends Command {
     }
 
     private String generateSuccessMessage(Student editedStudent) {
-        return String.format(MESSAGE_ADD_LESSON_SUCCESS, editedStudent);
+        return String.format(MESSAGE_ADD_LESSON_SUCCESS, Messages.format(editedStudent));
     }
 }

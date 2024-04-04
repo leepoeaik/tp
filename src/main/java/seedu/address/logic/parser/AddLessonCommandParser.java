@@ -48,7 +48,7 @@ public class AddLessonCommandParser implements Parser<AddLessonCommand> {
         LocalTime timeDetail = LocalTime.parse(lessonDetails[1], TIME_FORMATTER);
         int isCompleted;
         if (lessonDetails.length == 3) {
-            isCompleted = Integer.parseInt(lessonDetails[3]);
+            isCompleted = Integer.parseInt(lessonDetails[2]);
             return new AddLessonCommand(index, dateDetail, timeDetail, isCompleted);
         } else {
             return new AddLessonCommand(index, dateDetail, timeDetail);

@@ -175,8 +175,21 @@ public class MainWindow extends UiPart<Stage> {
         primaryStage.hide();
     }
 
-    public StudentListPanel getStudentListPanel() {
-        return studentListPanel;
+    /**
+     * Updates Schedule List Panel.
+     */
+    public void updateScheduleListPanel() {
+        scheduleListPanelPlaceholder.getChildren().clear();
+        scheduleListPanel = new ScheduleListPanel(logic.getFilteredStudentList());
+        scheduleListPanelPlaceholder.getChildren().add(scheduleListPanel.getRoot());
+    }
+    /**
+     * Updates Student List Panel.
+     */
+    public void updateStudentListPanel() {
+        studentListPanelPlaceholder.getChildren().clear();
+        studentListPanel = new StudentListPanel(logic.getFilteredStudentList());
+        studentListPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
     }
 
     /**
@@ -197,6 +210,8 @@ public class MainWindow extends UiPart<Stage> {
             if (commandResult.isExit()) {
                 handleExit();
             }
+            updateStudentListPanel();
+            updateScheduleListPanel();
 
             return commandResult;
         } catch (CommandException | ParseException e) {
