@@ -2,6 +2,8 @@ package seedu.address.ui;
 
 import java.util.logging.Logger;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
@@ -17,6 +19,7 @@ import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.student.Student;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -119,7 +122,7 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        studentListPanel = new StudentListPanel(logic.getFilteredStudentList());
+        studentListPanel = new StudentListPanel(this, logic.getFilteredStudentList());
         studentListPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
 
         scheduleListPanel = new ScheduleListPanel(logic.getFilteredStudentList());
@@ -183,12 +186,25 @@ public class MainWindow extends UiPart<Stage> {
         scheduleListPanel = new ScheduleListPanel(logic.getFilteredStudentList());
         scheduleListPanelPlaceholder.getChildren().add(scheduleListPanel.getRoot());
     }
+
+    /**
+     * Updates Schedule List Panel with specific student input
+     * @param student selected student input
+     */
+    public void updateScheduleListPanel(Student student) {
+        if (student != null) {
+            ObservableList<Student> temp = FXCollections.observableArrayList(student);
+            scheduleListPanelPlaceholder.getChildren().clear();
+            scheduleListPanel = new ScheduleListPanel(temp);
+            scheduleListPanelPlaceholder.getChildren().add(scheduleListPanel.getRoot());
+        }
+    }
     /**
      * Updates Student List Panel.
      */
     public void updateStudentListPanel() {
         studentListPanelPlaceholder.getChildren().clear();
-        studentListPanel = new StudentListPanel(logic.getFilteredStudentList());
+        studentListPanel = new StudentListPanel(this, logic.getFilteredStudentList());
         studentListPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
     }
 
