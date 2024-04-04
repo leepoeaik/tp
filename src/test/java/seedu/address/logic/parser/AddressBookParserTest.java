@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_FEESTATUS;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_STUDENT;
 
@@ -24,6 +25,7 @@ import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.student.FeeStatus;
 import seedu.address.model.student.NameContainsKeywordsPredicate;
 import seedu.address.model.student.Student;
 import seedu.address.testutil.EditStudentDescriptorBuilder;
@@ -71,7 +73,14 @@ public class AddressBookParserTest {
 
     @Test
     public void parseCommand_feeStatus() throws Exception {
-        assertTrue(parser.parseCommand(FeeStatusCommand.COMMAND_WORD) instanceof FeeStatusCommand);
+        final FeeStatus feeStatus = new FeeStatus("Some status.");
+        FeeStatusCommand command = (FeeStatusCommand) parser.parseCommand(FeeStatusCommand.COMMAND_WORD
+                + " "
+                + INDEX_FIRST_STUDENT.getOneBased()
+                + " "
+                + PREFIX_FEESTATUS
+                + feeStatus.status);
+        assertEquals(new FeeStatusCommand(INDEX_FIRST_STUDENT, feeStatus), command);
     }
 
     @Test
@@ -102,6 +111,7 @@ public class AddressBookParserTest {
 
     @Test
     public void parseCommand_unknownCommand_throwsParseException() {
-        assertThrows(ParseException.class, MESSAGE_UNKNOWN_COMMAND, () -> parser.parseCommand("unknownCommand"));
+        assertThrows(ParseException.class, MESSAGE_UNKNOWN_COMMAND, () ->
+                parser.parseCommand("unknownCommand"));
     }
 }

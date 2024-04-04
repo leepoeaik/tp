@@ -68,7 +68,7 @@ public class AddressBookParser {
             return new ClearCommand();
 
         case FeeStatusCommand.COMMAND_WORD:
-            return new FeeStatusCommand();
+            return new FeeStatusCommandParser().parse(arguments);
 
         case FindCommand.COMMAND_WORD:
             return new FindCommandParser().parse(arguments);
