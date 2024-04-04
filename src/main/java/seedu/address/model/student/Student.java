@@ -51,7 +51,7 @@ public class Student {
         this.address = address;
         this.subject = subject;
         this.lessons = new ArrayList<>();
-        this.feeStatus = new FeeStatus(");
+        this.feeStatus = new FeeStatus("");
         this.remark = new Remark("");
     }
 
