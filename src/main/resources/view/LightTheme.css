@@ -45,7 +45,7 @@
 #result-display{
     -fx-background-color: #000000;
         -fx-font-family: "Segoe UI Light";
-        -fx-font-size: 13pt;
+        -fx-font-size: 20px;
         -fx-text-fill: black;
         -fx-background-radius : 10px;
 }
@@ -53,7 +53,7 @@
 .result-display {
     -fx-background-color: #FFFFFF;
     -fx-font-family: "Segoe UI Light";
-    -fx-font-size: 13pt;
+    -fx-font-size: 20px;
     -fx-text-fill: black;
     -fx-background-radius : 10px;
     -fx-padding:5 5 5 5;

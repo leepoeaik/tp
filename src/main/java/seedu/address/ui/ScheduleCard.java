@@ -1,5 +1,6 @@
 package seedu.address.ui;
 
+import static seedu.address.model.student.Lesson.DATE_FORMATTER;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -61,7 +62,7 @@ public class ScheduleCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         name.setText(studentName);
         subject.setText(lesson.getSubject().value);
-        date.setText(String.valueOf(lesson.getDate()));
+        date.setText(lesson.getDate().format(DATE_FORMATTER));
         time.setText(lesson.getTime().toString());
     }
 }
