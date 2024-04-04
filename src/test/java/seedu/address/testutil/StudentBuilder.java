@@ -112,6 +112,10 @@ public class StudentBuilder {
         this.email = new Email(email);
         return this;
     }
+
+    /**
+     * Sets the {@code FeeStatus} of the {@code Student} that we are building.
+     */
     public StudentBuilder withFeeStatus(String feeStatus) {
         this.feeStatus = new FeeStatus(feeStatus);
         return this;

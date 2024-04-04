@@ -4,14 +4,14 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_FEESTATUS;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
 
+import java.util.List;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.student.Student;
 import seedu.address.model.student.FeeStatus;
-
-import java.util.List;
+import seedu.address.model.student.Student;
 
 /**
  * Changes the fee status of an existing student in TutorTrack.
@@ -89,9 +89,8 @@ public class FeeStatusCommand extends Command {
      * {@code studentToEdit}.
      */
     private String generateSuccessMessage(Student studentToEdit) {
-        String message = !feeStatus.status.isEmpty() ? MESSAGE_ADD_FEE_STATUS_SUCCESS :
-                MESSAGE_DELETE_FEE_STATUS_SUCCESS;
+        String message = !feeStatus.status.isEmpty() ? MESSAGE_ADD_FEE_STATUS_SUCCESS
+                : MESSAGE_DELETE_FEE_STATUS_SUCCESS;
         return String.format(message, studentToEdit);
     }
-
 }
