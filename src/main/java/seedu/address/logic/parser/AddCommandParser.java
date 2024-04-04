@@ -54,6 +54,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         Subject subject = ParserUtil.parseSubject(argMultimap.getValue(PREFIX_SUBJECT).get());
         Remark remark = new Remark(argMultimap.getValue(PREFIX_REMARK).orElse("")); // default value
         FeeStatus feeStatus = new FeeStatus(argMultimap.getValue(PREFIX_FEESTATUS).orElse(""));
+        List<Lesson> lessonList = ParserUtil.parseLessons((argMultimap.getAllValues(PREFIX_LESSON)));
         Student student = new Student(name, phone, email, address, subject, remark, feeStatus, lessonList);
 
         return new AddCommand(student);

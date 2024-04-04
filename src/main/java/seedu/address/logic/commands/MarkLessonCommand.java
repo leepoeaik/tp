@@ -68,7 +68,7 @@ public class MarkLessonCommand extends Command {
         }
         Student editedStudent = new Student(studentToEdit.getName(), studentToEdit.getPhone(), studentToEdit.getEmail(),
                 studentToEdit.getAddress(), studentToEdit.getSubject(),
-                studentToEdit.getRemark(), lessonList);
+                studentToEdit.getRemark(), studentToEdit.getFeeStatus(), lessonList);
 
         model.setStudent(studentToEdit, editedStudent);
         model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
