@@ -60,7 +60,7 @@ public class AddLessonCommandParser implements Parser<AddLessonCommand> {
      * @param lesson the lesson to be checked
      * @return true if the lesson is in the correct format, false otherwise
      */
-    public boolean isValidLesson(String lesson) {
+    public static boolean isValidLesson(String lesson) {
         String[] lessonDetails = lesson.trim().split("\\|");
         if (lessonDetails.length != 2 && lessonDetails.length != 3) {
             return false;
