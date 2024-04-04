@@ -23,6 +23,7 @@ import seedu.address.model.student.Student;
 public class ScheduleListPanel extends UiPart<Region> {
     private static final String FXML = "ScheduleListPanel.fxml";
     private final Logger logger = LogsCenter.getLogger(ScheduleListPanel.class);
+    private ObservableList<Student> studentList;
 
     @FXML
     private ListView<Pair<Student, Lesson>> scheduleListView;
@@ -32,8 +33,9 @@ public class ScheduleListPanel extends UiPart<Region> {
      */
     public ScheduleListPanel(ObservableList<Student> studentList) {
         super(FXML);
+        this.studentList = studentList;
 
-        scheduleListView.setItems(transformList(studentList));
+        scheduleListView.setItems(transformList(this.studentList));
         scheduleListView.setCellFactory(listView -> new ScheduleListViewCell());
     }
 
@@ -48,7 +50,9 @@ public class ScheduleListPanel extends UiPart<Region> {
         for (Student student : studentList) {
             List<Lesson> studentLesson = student.getLessons();
             for (Lesson l : studentLesson) {
-                scheduleList.add(new Pair(student, l));
+                if (l.getLessonStatus() == 0) {
+                    scheduleList.add(new Pair(student, l));
+                }
             }
         }
 
@@ -78,7 +82,6 @@ public class ScheduleListPanel extends UiPart<Region> {
 
         @Override
         public int compare(Pair<Student, Lesson> o1, Pair<Student, Lesson> o2) {
-            // TODO: implement your logic here
             return o1.getValue().getDate().compareTo(o2.getValue().getDate());
         }
     }
