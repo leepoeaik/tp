@@ -124,7 +124,7 @@ public class ParserUtil {
     public static Lesson parseLesson(String lesson) throws ParseException {
         requireNonNull(lesson);
         if (!isValidLesson(lesson) && !isValidJsonLesson(lesson)) {
-            throw new ParseException(Lesson.MESSAGE_CONSTRAINTS);
+            throw new ParseException(Lesson.MESSAGE_CONSTRAINTS_1);
         }
         // split lesson into its attributes based on "|" character
         String[] lessonDetails = lesson.trim().split("\\|");

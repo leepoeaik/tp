@@ -63,11 +63,19 @@ public class AddLessonCommand extends Command {
         Student studentToEdit = lastShownList.get(index.getZeroBased());
         List<Lesson> lessonList = new ArrayList<>(studentToEdit.getLessons());
         String studentToEditSubject = studentToEdit.getSubject().value;
+        // Separate lesson constructors if isCompleted parameter is provided from user input.
+        Lesson newLesson;
         if (isCompleted != null) {
-            lessonList.add(new Lesson(studentToEditSubject, this.date, this.time, this.isCompleted));
+            newLesson = new Lesson(studentToEditSubject, this.date, this.time, this.isCompleted);
         } else {
-            lessonList.add(new Lesson(studentToEditSubject, this.date, this.time));
+            newLesson = new Lesson(studentToEditSubject, this.date, this.time);
         }
+        // Check if the lesson already exists in the student's lesson list.
+        if (lessonList.contains(newLesson)) {
+            throw new CommandException(Messages.MESSAGE_DUPLICATE_LESSON);
+        }
+        // Add the lesson to the student's lesson list.
+        lessonList.add(newLesson);
         Student editedStudent = new Student(studentToEdit.getName(), studentToEdit.getPhone(), studentToEdit.getEmail(),
                 studentToEdit.getAddress(), studentToEdit.getSubject(),
                 studentToEdit.getRemark(), lessonList);
