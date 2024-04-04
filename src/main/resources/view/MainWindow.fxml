@@ -16,82 +16,87 @@
 <?import javafx.stage.Stage?>
 
 <fx:root minHeight="600" minWidth="450" onCloseRequest="#handleExit" title="TutorTrack" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-  <icons>
-    <Image url="@/images/address_book_32.png" />
-  </icons>
-  <scene>
-    <Scene>
+    <icons>
+        <Image url="@/images/address_book_32.png" />
+    </icons>
+    <scene>
+        <Scene>
 
-      <VBox>
-        <MenuBar fx:id="menuBar" VBox.vgrow="NEVER">
-          <Menu mnemonicParsing="false" text="File">
-            <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
-          </Menu>
-        </MenuBar>
-            <HBox fx:id="labelCommandHolder" prefHeight="18.0" prefWidth="340.0">
-               <children>
-                  <HBox fx:id="titleLogoLabel" alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="136.0">
-                     <children>
-                        <Label contentDisplay="CENTER" prefHeight="22.0" prefWidth="86.0" text="TutorTrack" textAlignment="RIGHT">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="31.0" fitWidth="45.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@/images/book-logo.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </HBox>
-                  <HBox fx:id="commandTextHBox" alignment="CENTER_RIGHT" minHeight="-Infinity" minWidth="-Infinity" HBox.hgrow="ALWAYS">
-                     <children>
-                    <StackPane fx:id="commandBoxPlaceholder" styleClass="pane-with-border" HBox.hgrow="ALWAYS">
-                      <padding>
+            <VBox>
+                <MenuBar fx:id="menuBar" VBox.vgrow="NEVER">
+                    <Menu mnemonicParsing="false" text="File">
+                        <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
+                    </Menu>
+                    <Menu mnemonicParsing="false" text="Help">
+                        <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
+                    </Menu>
+                </MenuBar>
+                <HBox fx:id="labelCommandHolder" prefHeight="18.0" prefWidth="340.0">
+                    <children>
+                        <HBox fx:id="titleLogoLabel" alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="136.0">
+                            <children>
+                                <Label contentDisplay="CENTER" prefHeight="22.0" prefWidth="86.0" text="TutorTrack" textAlignment="RIGHT">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Label>
+                                <ImageView fitHeight="31.0" fitWidth="45.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/images/book-logo.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </HBox>
+                        <HBox fx:id="commandTextHBox" alignment="CENTER_RIGHT" minHeight="-Infinity" minWidth="-Infinity" HBox.hgrow="ALWAYS">
+                            <children>
+                                <StackPane fx:id="commandBoxPlaceholder" styleClass="pane-with-border" HBox.hgrow="ALWAYS">
+                                    <padding>
+                                        <Insets bottom="5" left="10" right="10" top="5" />
+                                    </padding>
+                                </StackPane>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </padding>
+                        </HBox>
+                    </children>
+                </HBox>
+
+                <StackPane fx:id="resultDisplayPlaceholder" maxHeight="100" minHeight="100" prefHeight="100" styleClass="pane-with-border" VBox.vgrow="NEVER">
+                    <padding>
                         <Insets bottom="5" left="10" right="10" top="5" />
-                      </padding>
-                    </StackPane>
-                     </children>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                  </HBox>
-               </children>
-            </HBox>
+                    </padding>
+                </StackPane>
+                <HBox fx:id="studentListHBox" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <VBox fx:id="scheduleBox" alignment="CENTER" minWidth="340" prefWidth="340" styleClass="pane-with-border">
+                            <padding>
+                                <Insets bottom="10" left="10" right="10" top="10" />
+                            </padding>
+                            <children>
+                                <Label fx:id="upcomingLessonLabel" text="Upcoming lessons">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Label>
+                                <StackPane fx:id="scheduleListPanelPlaceholder" VBox.vgrow="ALWAYS" />
+                            </children>
+                        </VBox>
+                        <VBox fx:id="studentList" alignment="CENTER_RIGHT" minWidth="340" prefWidth="340" styleClass="pane-with-border" HBox.hgrow="ALWAYS">
+                            <padding>
+                                <Insets bottom="10" left="10" right="10" top="10" />
+                            </padding>
+                            <StackPane fx:id="studentListPanelPlaceholder" VBox.vgrow="ALWAYS" />
+                        </VBox>
+                    </children>
+                </HBox>
 
-              <StackPane fx:id="resultDisplayPlaceholder" maxHeight="100" minHeight="100" prefHeight="100" styleClass="pane-with-border" VBox.vgrow="NEVER">
-          <padding>
-            <Insets bottom="5" left="10" right="10" top="5" />
-          </padding>
-        </StackPane>
-            <HBox fx:id="studentListHBox" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <VBox fx:id="scheduleBox" alignment="CENTER_RIGHT" minWidth="340" prefWidth="340" styleClass="pane-with-border">
-                     <padding>
-                        <Insets bottom="10" left="10" right="10" top="10" />
-                     </padding>
-                     <children>
-                        <StackPane fx:id="scheduleListPanelPlaceholder" VBox.vgrow="ALWAYS" />
-                     </children>
-                  </VBox>
-              <VBox fx:id="studentList" alignment="CENTER_RIGHT" minWidth="340" prefWidth="340" styleClass="pane-with-border" HBox.hgrow="ALWAYS">
-                <padding>
-                  <Insets bottom="10" left="10" right="10" top="10" />
-                </padding>
-                <StackPane fx:id="studentListPanelPlaceholder" VBox.vgrow="ALWAYS" />
-              </VBox>
-               </children>
-            </HBox>
-
-        <StackPane fx:id="statusbarPlaceholder" VBox.vgrow="NEVER" />
-      </VBox>
-         <stylesheets>
-            <URL value="@Extensions.css" />
-            <URL value="@LightTheme.css" />
-         </stylesheets>
-    </Scene>
-  </scene>
+                <StackPane fx:id="statusbarPlaceholder" VBox.vgrow="NEVER" />
+            </VBox>
+            <stylesheets>
+                <URL value="@Extensions.css" />
+                <URL value="@LightTheme.css" />
+            </stylesheets>
+        </Scene>
+    </scene>
 </fx:root>
