@@ -2,12 +2,19 @@ package seedu.address.model;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.util.Pair;
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.model.student.Lesson;
 import seedu.address.model.student.Student;
 import seedu.address.model.student.UniqueStudentList;
+import seedu.address.ui.ScheduleListPanel;
 
 /**
  * Wraps all data at the address-book level
@@ -55,6 +62,27 @@ public class AddressBook implements ReadOnlyAddressBook {
         requireNonNull(newData);
 
         setStudents(newData.getStudentList());
+    }
+
+    /**
+     * Extracts lessons from studentList
+     * Adds the lessons together with student as a pair and sorts it
+     * @param studentList observable list of students
+     * @return an observable list of a pair of students and lessons
+     */
+    public ObservableList<Pair<Student, Lesson>> transformList(ObservableList<Student> studentList) {
+        List<Pair<Student, Lesson>> scheduleList = new ArrayList<>();
+        for (Student student : studentList) {
+            List<Lesson> studentLesson = student.getLessons();
+            for (Lesson l : studentLesson) {
+                scheduleList.add(new Pair(student, l));
+            }
+        }
+
+        Collections.sort(scheduleList, new SortDate());
+
+        ObservableList<Pair<Student, Lesson>> observableList = FXCollections.observableList(scheduleList);
+        return observableList;
     }
 
     //// student-level operations
@@ -110,6 +138,11 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     @Override
+    public ObservableList<Pair<Student, Lesson>> getScheduleList() {
+        return transformList(students.asUnmodifiableObservableList());
+    }
+
+    @Override
     public boolean equals(Object other) {
         if (other == this) {
             return true;
@@ -127,5 +160,14 @@ public class AddressBook implements ReadOnlyAddressBook {
     @Override
     public int hashCode() {
         return students.hashCode();
+    }
+
+    static class SortDate implements Comparator<Pair<Student, Lesson>> {
+
+        @Override
+        public int compare(Pair<Student, Lesson> o1, Pair<Student, Lesson> o2) {
+            // TODO: implement your logic here
+            return o1.getValue().getDate().compareTo(o2.getValue().getDate());
+        }
     }
 }

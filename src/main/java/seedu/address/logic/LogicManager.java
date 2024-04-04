@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
+import javafx.util.Pair;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.Command;
@@ -15,6 +16,7 @@ import seedu.address.logic.parser.AddressBookParser;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.student.Lesson;
 import seedu.address.model.student.Student;
 import seedu.address.storage.Storage;
 
@@ -69,6 +71,11 @@ public class LogicManager implements Logic {
     @Override
     public ObservableList<Student> getFilteredStudentList() {
         return model.getFilteredStudentList();
+    }
+
+    @Override
+    public ObservableList<Pair<Student, Lesson>> getFilteredScheduleList() {
+        return model.getFilteredScheduleList();
     }
 
     @Override

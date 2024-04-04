@@ -4,14 +4,22 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.util.Pair;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.model.student.Lesson;
 import seedu.address.model.student.Student;
+import seedu.address.ui.StudentListPanel;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -22,6 +30,7 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Student> filteredStudents;
+    private FilteredList<Pair<Student,Lesson>> filteredPair;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -34,6 +43,23 @@ public class ModelManager implements Model {
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredStudents = new FilteredList<>(this.addressBook.getStudentList());
+        filteredPair = new FilteredList<>(transformList(this.addressBook.getStudentList()));
+
+        filteredStudents.addListener((ListChangeListener.Change<? extends Student> change) -> {
+            while (change.next()) {
+                if (change.wasAdded()) {
+                    // Handle items added to filteredStudents
+                    // For example, you might want to add corresponding items to filteredPair
+                    filteredPair = new FilteredList<>(transformList(this.addressBook.getStudentList()));
+                }
+                if (change.wasRemoved()) {
+                    // Handle items removed from filteredStudents
+                    // For example, you might want to remove corresponding items from filteredPair
+                    filteredPair = new FilteredList<>(transformList(this.addressBook.getStudentList()));
+                }
+                // Handle other types of changes as needed
+            }
+        });
     }
 
     public ModelManager() {
@@ -102,6 +128,7 @@ public class ModelManager implements Model {
     public void addStudent(Student student) {
         addressBook.addStudent(student);
         updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
+        updateFilteredScheduleList(PREDICATE_SHOW_ALL_SCHEDULE);
     }
 
     @Override
@@ -129,6 +156,17 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public ObservableList<Pair<Student, Lesson>> getFilteredScheduleList() {
+        return filteredPair;
+    }
+
+    @Override
+    public void updateFilteredScheduleList(Predicate<Pair<Student, Lesson>> predicate) {
+        requireNonNull(predicate);
+        filteredPair.setPredicate(predicate);
+    }
+
+    @Override
     public boolean equals(Object other) {
         if (other == this) {
             return true;
@@ -143,6 +181,21 @@ public class ModelManager implements Model {
         return addressBook.equals(otherModelManager.addressBook)
                 && userPrefs.equals(otherModelManager.userPrefs)
                 && filteredStudents.equals(otherModelManager.filteredStudents);
+    }
+
+    public ObservableList<Pair<Student, Lesson>> transformList(ObservableList<Student> studentList) {
+        List<Pair<Student, Lesson>> scheduleList = new ArrayList<>();
+        for (Student student : studentList) {
+            List<Lesson> studentLesson = student.getLessons();
+            for (Lesson l : studentLesson) {
+                scheduleList.add(new Pair(student, l));
+            }
+        }
+
+        Collections.sort(scheduleList, new AddressBook.SortDate());
+
+        ObservableList<Pair<Student, Lesson>> observableList = FXCollections.observableList(scheduleList);
+        return observableList;
     }
 
 }

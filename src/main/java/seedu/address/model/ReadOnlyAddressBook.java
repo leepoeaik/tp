@@ -1,6 +1,8 @@
 package seedu.address.model;
 
 import javafx.collections.ObservableList;
+import javafx.util.Pair;
+import seedu.address.model.student.Lesson;
 import seedu.address.model.student.Student;
 
 /**
@@ -14,4 +16,5 @@ public interface ReadOnlyAddressBook {
      */
     ObservableList<Student> getStudentList();
 
+    ObservableList<Pair<Student, Lesson>> getScheduleList();
 }

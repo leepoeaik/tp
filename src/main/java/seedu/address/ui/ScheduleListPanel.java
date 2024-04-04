@@ -26,37 +26,24 @@ public class ScheduleListPanel extends UiPart<Region> {
 
     @FXML
     private ListView<Pair<Student, Lesson>> scheduleListView;
+//    @FXML
+//    private ListView<Student> scheduleListView;
+
 
     /**
      * Creates a {@code ScheduleListPanel} with the given {@code ObservableList}.
      */
-    public ScheduleListPanel(ObservableList<Student> studentList) {
+    public ScheduleListPanel(ObservableList<Pair<Student, Lesson>> scheduleList) {
         super(FXML);
 
-        scheduleListView.setItems(transformList(studentList));
+//        scheduleListView.setItems(transformList(studentList));
+//        System.out.println(studentList);
+
+        scheduleListView.setItems(scheduleList);
         scheduleListView.setCellFactory(listView -> new ScheduleListViewCell());
     }
 
-    /**
-     * Extracts lessons from studentList
-     * Adds the lessons together with student as a pair and sorts it
-     * @param studentList observable list of students
-     * @return an observable list of a pair of students and lessons
-     */
-    public ObservableList<Pair<Student, Lesson>> transformList(ObservableList<Student> studentList) {
-        List<Pair<Student, Lesson>> scheduleList = new ArrayList<>();
-        for (Student student : studentList) {
-            List<Lesson> studentLesson = student.getLessons();
-            for (Lesson l : studentLesson) {
-                scheduleList.add(new Pair(student, l));
-            }
-        }
 
-        Collections.sort(scheduleList, new SortDate());
-
-        ObservableList<Pair<Student, Lesson>> observableList = FXCollections.observableList(scheduleList);
-        return observableList;
-    }
 
     /**
      * Custom {@code ListCell} that displays the graphics of a {@code Student} using a {@code StudentCard}.
@@ -74,13 +61,23 @@ public class ScheduleListPanel extends UiPart<Region> {
         }
     }
 
-    class SortDate implements Comparator<Pair<Student, Lesson>> {
+//    class ScheduleListViewCell extends ListCell<Student> {
+//
+//
+//        @Override
+//        protected void updateItem(Student student, boolean empty) {
+//            super.updateItem(student, empty);
+//
+//            if (empty || student == null) {
+//                setGraphic(null);
+//                setText(null);
+//            } else {
+//
+//                setGraphic(new ScheduleCard(student, getIndex() + 1).getRoot());
+//            }
+//        }
+//    }
 
-        @Override
-        public int compare(Pair<Student, Lesson> o1, Pair<Student, Lesson> o2) {
-            // TODO: implement your logic here
-            return o1.getValue().getDate().compareTo(o2.getValue().getDate());
-        }
-    }
+
 
 }

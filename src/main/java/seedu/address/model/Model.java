@@ -4,7 +4,9 @@ import java.nio.file.Path;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
+import javafx.util.Pair;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.model.student.Lesson;
 import seedu.address.model.student.Student;
 
 /**
@@ -13,6 +15,7 @@ import seedu.address.model.student.Student;
 public interface Model {
     /** {@code Predicate} that always evaluate to true */
     Predicate<Student> PREDICATE_SHOW_ALL_STUDENTS = unused -> true;
+    Predicate<Pair<Student, Lesson>> PREDICATE_SHOW_ALL_SCHEDULE = unused -> true;
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
@@ -85,4 +88,8 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredStudentList(Predicate<Student> predicate);
+
+    ObservableList<Pair<Student, Lesson>> getFilteredScheduleList();
+
+    void updateFilteredScheduleList(Predicate<Pair<Student, Lesson>> predicate);
 }

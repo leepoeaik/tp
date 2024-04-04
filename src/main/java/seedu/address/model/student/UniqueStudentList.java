@@ -8,6 +8,7 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.util.Pair;
 import seedu.address.model.student.exceptions.DuplicateStudentException;
 import seedu.address.model.student.exceptions.StudentNotFoundException;
 
@@ -25,6 +26,7 @@ import seedu.address.model.student.exceptions.StudentNotFoundException;
 public class UniqueStudentList implements Iterable<Student> {
 
     private final ObservableList<Student> internalList = FXCollections.observableArrayList();
+    private final ObservableList<Pair<Student, Lesson>> pairObservableList = FXCollections.observableArrayList();
     private final ObservableList<Student> internalUnmodifiableList =
             FXCollections.unmodifiableObservableList(internalList);
 
@@ -46,6 +48,7 @@ public class UniqueStudentList implements Iterable<Student> {
             throw new DuplicateStudentException();
         }
         internalList.add(toAdd);
+//        pairObservableList.add();
     }
 
     /**

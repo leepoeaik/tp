@@ -64,4 +64,10 @@ public class ScheduleCard extends UiPart<Region> {
         date.setText(String.valueOf(lesson.getDate()));
         time.setText(lesson.getTime().toString());
     }
+//    public ScheduleCard(Student student, int displayedIndex) {
+//        super(FXML);
+//        this.studentName = student.getName().toString();
+//        id.setText(displayedIndex + ". ");
+//        name.setText(studentName);
+//    }
 }
