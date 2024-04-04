@@ -10,7 +10,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SUBJECT;
 
-import java.util.Set;
+import java.util.List;
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.AddCommand;
@@ -51,11 +51,11 @@ public class AddCommandParser implements Parser<AddCommand> {
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
-        Set<Lesson> lessonList = ParserUtil.parseLessons(argMultimap.getAllValues(PREFIX_LESSON));
         Subject subject = ParserUtil.parseSubject(argMultimap.getValue(PREFIX_SUBJECT).get());
         Remark remark = new Remark(argMultimap.getValue(PREFIX_REMARK).orElse("")); // default value
         FeeStatus feeStatus = new FeeStatus(argMultimap.getValue(PREFIX_FEESTATUS).orElse(""));
         Student student = new Student(name, phone, email, address, subject, remark, feeStatus, lessonList);
+
         return new AddCommand(student);
     }
 

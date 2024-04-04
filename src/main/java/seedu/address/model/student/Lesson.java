@@ -1,6 +1,7 @@
 package seedu.address.model.student;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -12,45 +13,63 @@ import java.time.format.DateTimeParseException;
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Lesson {
-    public static final String MESSAGE_CONSTRAINTS =
+    public static final String MESSAGE_CONSTRAINTS_1 =
             "Lessons must be of the form subject|dd-MM-yyyy|hh:mm|0/1, where subject contains only alphabeths"
                     + " and spaces, and indicate lesson incomplete/completed with 0 or 1 respectively.";
+    public static final String MESSAGE_CONSTRAINTS_2 =
+            "Lessons must be of the form dd-MM-yyyy|hh:mm OR dd-MM-yyyy|hh:mm|0/1, where the last field of 0 or 1"
+                    + " is optional, with 0 indicating lesson incomplete and 1 indicating lesson complete.";
     public static final String VALIDATION_REGEX = "^[a-zA-Z][a-zA-Z ]*$";
     public static final String DATE_REGEX = "\\d{2}-\\d{2}-\\d{4}";
     public static final String TIME_REGEX = "\\d{2}:\\d{2}";
-    public static final String INT_REGEX = "[01]";
-    private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-    private static final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    public static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
     private String value;
+    private String jsonValue;
     private final Subject subject;
     private final LocalDate date;
     private final LocalTime time;
     private int isCompleted;
 
     /**
-     * Constructs a Lesson with the specified subject, date, and time.
+     * Constructs a {@code Lesson} that is already parsed.
      *
-     * @param lesson The details of the lesson.
+     * @param subject A valid subject.
+     * @param date A valid date.
+     * @param time A valid time.
      */
-    public Lesson(String lesson) {
-        requireNonNull(lesson);
-        // split lesson into its attributes based on "|" character
-        String[] lessonDetails = lesson.trim().split("\\|");
-        // throws IllegalArgumentException if the lesson is not in the correct format.
-        if (lessonDetails.length != 4) {
-            throw new IllegalArgumentException(MESSAGE_CONSTRAINTS);
-        }
-        String subjectDetail = lessonDetails[0];
-        String dateDetail = lessonDetails[1];
-        String timeDetail = lessonDetails[2];
-        int isCompletedDetail = Integer.parseInt(lessonDetails[3]);
+    public Lesson(String subject, LocalDate date, LocalTime time) {
+        requireNonNull(subject);
+        requireNonNull(date);
+        requireNonNull(time);
+        checkArgument(subject.matches(VALIDATION_REGEX), MESSAGE_CONSTRAINTS_1);
         // assign the attributes to the lesson
-        this.subject = new Subject(subjectDetail);
-        this.date = LocalDate.parse(dateDetail, dateFormatter);
-        this.time = LocalTime.parse(timeDetail, timeFormatter);
-        this.isCompleted = isCompletedDetail;
-        // parseable form of lesson (temporary)
-        this.value = subjectDetail + "|" + dateDetail + "|" + timeDetail + "|" + isCompleted;
+        this.subject = new Subject(subject);
+        this.date = LocalDate.parse(date.format(DATE_FORMATTER), DATE_FORMATTER);
+        this.time = time;
+        this.isCompleted = 0;
+        // jSON readable form of lesson
+        this.jsonValue = this.subject.value + "|" + this.date.format(DATE_FORMATTER) + "|"
+                + this.time.format(TIME_FORMATTER) + "|" + this.isCompleted;
+        // UI displayed form of lesson
+        this.value = this.subject + " " + this.date + " " + this.time;
+    }
+
+    /**
+     * Constructs a {@code Lesson} that is already parsed, with the optional isCompleted field.
+     *
+     * @param subject A valid subject.
+     * @param date A valid date.
+     * @param time A valid time.
+     * @param isCompleted A valid isCompleted int field.
+     */
+    public Lesson(String subject, LocalDate date, LocalTime time, int isCompleted) {
+        this(subject, date, time);
+        if (isCompleted == 1) {
+            this.setLessonComplete();
+        } else {
+            this.setLessonIncomplete();
+        }
     }
 
     /**
@@ -58,20 +77,18 @@ public class Lesson {
      */
     public static boolean isValidLesson(String lessonValue) {
         String[] lessonDetails = lessonValue.split("\\|");
-        if (lessonDetails.length != 4) {
+        if (lessonDetails.length != 3) {
             return false;
         }
         try {
-            LocalDate.parse(lessonDetails[1], dateFormatter);
-            LocalTime.parse(lessonDetails[2], timeFormatter);
-            Integer.parseInt(lessonDetails[3]);
-        } catch (DateTimeParseException | NumberFormatException e) {
+            LocalDate.parse(lessonDetails[1], DATE_FORMATTER);
+            LocalTime.parse(lessonDetails[2], TIME_FORMATTER);
+        } catch (DateTimeParseException e) {
             return false;
         }
         return lessonDetails[0].matches(VALIDATION_REGEX)
                 && lessonDetails[1].matches(DATE_REGEX)
-                && lessonDetails[2].matches(TIME_REGEX)
-                && lessonDetails[3].matches(INT_REGEX);
+                && lessonDetails[2].matches(TIME_REGEX);
     }
 
     /**
@@ -113,6 +130,9 @@ public class Lesson {
     public String getLessonValue() {
         return value;
     }
+    public String getJsonValue() {
+        return jsonValue;
+    }
 
     public void setLessonComplete() {
         this.isCompleted = 1;
@@ -146,6 +166,6 @@ public class Lesson {
      * Format state as text for viewing.
      */
     public String toString() {
-        return this.subject + "  " + this.date.toString() + "  " + this.time;
+        return this.subject + "  " + this.date.toString() + "  " + this.time + " ";
     }
 }

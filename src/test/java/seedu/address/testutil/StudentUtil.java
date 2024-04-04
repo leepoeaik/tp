@@ -7,7 +7,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SUBJECT;
 
-import java.util.Set;
+import java.util.List;
 
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.EditCommand.EditStudentDescriptor;
@@ -53,7 +53,7 @@ public class StudentUtil {
         descriptor.getAddress().ifPresent(address -> sb.append(PREFIX_ADDRESS).append(address.value).append(" "));
         descriptor.getSubject().ifPresent(subject -> sb.append(PREFIX_SUBJECT).append(subject.value).append(" "));
         if (descriptor.getLessons().isPresent()) {
-            Set<Lesson> lessons = descriptor.getLessons().get();
+            List<Lesson> lessons = descriptor.getLessons().get();
             if (lessons.isEmpty()) {
                 sb.append(PREFIX_LESSON);
             } else {

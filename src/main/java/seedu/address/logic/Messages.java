@@ -18,6 +18,8 @@ public class Messages {
     public static final String MESSAGE_STUDENTS_LISTED_OVERVIEW = "%1$d students listed!";
     public static final String MESSAGE_DUPLICATE_FIELDS =
                 "Multiple values specified for the following single-valued field(s): ";
+    public static final String MESSAGE_DUPLICATE_LESSON = "This lesson already exists in the student's lesson list";
+    public static final String MESSAGE_INVALID_LESSON = "The lesson does not exist for the specified student";
 
     /**
      * Returns an error message indicating the duplicate prefixes.

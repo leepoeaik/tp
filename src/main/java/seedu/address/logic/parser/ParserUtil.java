@@ -1,10 +1,16 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.model.student.Lesson.DATE_FORMATTER;
+import static seedu.address.model.student.Lesson.TIME_FORMATTER;
+import static seedu.address.model.student.Lesson.isValidLesson;
+import static seedu.address.storage.JsonAdaptedLesson.isValidJsonLesson;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
@@ -80,7 +86,6 @@ public class ParserUtil {
         }
         return new Address(trimmedAddress);
     }
-
     /**
      * Parses a {@code String email} into an {@code Email}.
      * Leading and trailing whitespaces will be trimmed.
@@ -95,32 +100,6 @@ public class ParserUtil {
         }
         return new Email(trimmedEmail);
     }
-
-    /**
-     * Parses a {@code String lesson} into a {@code Lesson}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code tag} is invalid.
-     */
-    public static Lesson parseLesson(String lesson) throws ParseException {
-        requireNonNull(lesson);
-        if (!Lesson.isValidLesson(lesson)) {
-            throw new ParseException(Lesson.MESSAGE_CONSTRAINTS);
-        }
-        return new Lesson(lesson);
-    }
-
-    /**
-     * Parses {@code Collection<String> tags} into a {@code Set<Tag>}.
-     */
-    public static Set<Lesson> parseLessons(Collection<String> lessons) throws ParseException {
-        requireNonNull(lessons);
-        final Set<Lesson> lessonSet = new HashSet<>();
-        for (String lessonValue : lessons) {
-            lessonSet.add(parseLesson(lessonValue));
-        }
-        return lessonSet;
-    }
     /**
      * Parses a {@code String subject} into an {@code Subject}.
      * Leading and trailing whitespaces will be trimmed.
@@ -134,5 +113,44 @@ public class ParserUtil {
             throw new ParseException(Subject.MESSAGE_CONSTRAINTS);
         }
         return new Subject(trimmedSubject);
+    }
+
+    /**
+     * Parses a {@code String lesson} into a {@code Lesson}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code lesson} is invalid.
+     */
+    public static Lesson parseLesson(String lesson) throws ParseException {
+        requireNonNull(lesson);
+        if (!isValidLesson(lesson) && !isValidJsonLesson(lesson)) {
+            throw new ParseException(Lesson.MESSAGE_CONSTRAINTS_1);
+        }
+        // split lesson into its attributes based on "|" character
+        String[] lessonDetails = lesson.trim().split("\\|");
+        String subjectDetail = lessonDetails[0];
+        LocalDate dateDetail = LocalDate.parse(lessonDetails[1], DATE_FORMATTER);
+        LocalTime timeDetail = LocalTime.parse(lessonDetails[2], TIME_FORMATTER);
+        int isCompleted;
+        if (lessonDetails.length == 4) {
+            isCompleted = Integer.parseInt(lessonDetails[3]);
+            return new Lesson(subjectDetail, dateDetail, timeDetail, isCompleted);
+        } else {
+            return new Lesson(subjectDetail, dateDetail, timeDetail);
+        }
+    }
+
+    /**
+     * Parses a {@code Collection<String> lessonList} into a {@code List<Lesson>}.
+     *
+     * @throws ParseException if the given {@code lessonSet} is invalid.
+     */
+    public static List<Lesson> parseLessons(Collection<String> lessons) throws ParseException {
+        requireNonNull(lessons);
+        List<Lesson> lessonList = new ArrayList<>();
+        for (String lesson : lessons) {
+            lessonList.add(parseLesson(lesson));
+        }
+        return lessonList;
     }
 }

@@ -11,7 +11,7 @@ public class Subject {
     public static final String MESSAGE_CONSTRAINTS =
             "Subjects can only take alphanumeric values and spaces, and it should not be blank";
 
-    public static final String VALIDATION_REGEX = "^[a-zA-Z][a-zA-Z ]*$";
+    public static final String VALIDATION_REGEX = "^[A-Z][a-zA-Z ]*$";
 
     public final String value;
 

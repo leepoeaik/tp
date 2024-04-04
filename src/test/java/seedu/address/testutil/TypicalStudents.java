@@ -4,6 +4,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_LESSON_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_LESSON_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
@@ -38,22 +39,22 @@ public class TypicalStudents {
             .withEmail("johnd@example.com").withPhone("98765432")
             .withSubject("Geography")
             .withFeeStatus("Paid.")
-            .withLessons("Geography|10-05-2004|12:29|0")
+            .withLessons("Geography|10-05-2004|12:29|1")
             .build();
     public static final Student CARL = new StudentBuilder().withName("Carl Kurz").withPhone("95352563")
-            .withSubject("English").withLessons("English|10-05-2004|12:29|1")
+            .withSubject("English").withLessons("English|10-05-2004|12:29|0")
             .withEmail("heinz@example.com").withAddress("wall street").build();
     public static final Student DANIEL = new StudentBuilder().withName("Daniel Meier").withPhone("87652533")
-            .withSubject("History").withLessons("Geography|10-05-2004|12:29|1")
+            .withSubject("History").withLessons("Geography|10-05-2004|12:29|0")
             .withEmail("cornelia@example.com").withAddress("10th street").build();
     public static final Student ELLE = new StudentBuilder().withName("Elle Meyer").withPhone("9482224")
-            .withSubject("Psychology").withLessons("Geography|10-05-2004|12:29|0")
+            .withSubject("Psychology").withLessons("Geography|10-05-2004|12:29|1")
             .withEmail("werner@example.com").withAddress("michegan ave").build();
     public static final Student FIONA = new StudentBuilder().withName("Fiona Kunz").withPhone("9482427")
-            .withSubject("English")
+            .withSubject("English").withLessons("English|10-05-2004|12:29|0")
             .withEmail("lydia@example.com").withAddress("little tokyo").build();
     public static final Student GEORGE = new StudentBuilder().withName("George Best").withPhone("9482442")
-            .withSubject("Art").withLessons("Art|10-05-2004|12:29|0")
+            .withSubject("Art").withLessons("Art|10-05-2004|12:29|1")
             .withEmail("anna@example.com").withAddress("4th street").build();
 
     // Manually added
@@ -61,13 +62,13 @@ public class TypicalStudents {
             .withSubject("Music").withLessons("Science|10-05-2004|12:29|1")
             .withEmail("stefan@example.com").withAddress("little india").build();
     public static final Student IDA = new StudentBuilder().withName("Ida Mueller").withPhone("8482131")
-            .withSubject("Dance").withLessons("Maths|10-06-2004|12:29|1")
+            .withSubject("Dance").withLessons("Maths|10-06-2004|12:29|0")
             .withEmail("hans@example.com").withAddress("chicago ave").build();
 
     // Manually added - Student's details found in {@code CommandTestUtil}
     public static final Student AMY = new StudentBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)
             .withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
-            .withSubject(VALID_SUBJECT_AMY).build();
+            .withSubject(VALID_SUBJECT_AMY).withLessons(VALID_LESSON_AMY).build();
     public static final Student BOB = new StudentBuilder().withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
             .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withLessons(VALID_LESSON_BOB)
             .withSubject(VALID_SUBJECT_BOB).withRemark(VALID_REMARK_BOB).build();
