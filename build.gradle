@@ -69,4 +69,8 @@ shadowJar {
     archiveFileName = 'tutortrack.jar'
 }
 
+run {
+    enableAssertions = true
+}
+
 defaultTasks 'clean', 'test'
