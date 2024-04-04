@@ -5,6 +5,7 @@ import java.util.Set;
 
 import seedu.address.model.student.Address;
 import seedu.address.model.student.Email;
+import seedu.address.model.student.FeeStatus;
 import seedu.address.model.student.Lesson;
 import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;
@@ -25,9 +26,11 @@ public class StudentBuilder {
     private static final String DEFAULT_REMARK = "";
     private static final String DEFAULT_SUBJECT = "Math";
     private static final String DEFAULT_LESSON = "Math|10-05-2002|13:00|0";
+    private static final String DEFAULT_FEE_STATUS = "Paid.";
     private Name name;
     private Phone phone;
     private Email email;
+    private FeeStatus feeStatus;
     private Address address;
     private Subject subject;
     private Set<Lesson> lessons;
@@ -40,6 +43,7 @@ public class StudentBuilder {
         name = new Name(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
+        feeStatus = new FeeStatus(DEFAULT_FEE_STATUS);
         address = new Address(DEFAULT_ADDRESS);
         subject = new Subject(DEFAULT_SUBJECT);
         lessons = new HashSet<>();
@@ -53,6 +57,7 @@ public class StudentBuilder {
         name = personToCopy.getName();
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
+        feeStatus = personToCopy.getFeeStatus();
         address = personToCopy.getAddress();
         subject = personToCopy.getSubject();
         lessons = new HashSet<>(personToCopy.getLessons());
@@ -98,6 +103,10 @@ public class StudentBuilder {
         this.email = new Email(email);
         return this;
     }
+    public StudentBuilder withFeeStatus(String feeStatus) {
+        this.feeStatus = new FeeStatus(feeStatus);
+        return this;
+    }
 
     /**
      * Sets the {@code Remark} of the {@code Student} that being built.
@@ -116,6 +125,6 @@ public class StudentBuilder {
     }
 
     public Student build() {
-        return new Student(name, phone, email, address, subject, remark, lessons);
+        return new Student(name, phone, email, address, subject, remark, feeStatus, lessons);
     }
 }

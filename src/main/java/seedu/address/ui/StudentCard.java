@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import seedu.address.model.student.FeeStatus;
 import seedu.address.model.student.Lesson;
 import seedu.address.model.student.Student;
 
@@ -45,6 +46,8 @@ public class StudentCard extends UiPart<Region> {
     private FlowPane lessons;
     @FXML
     private Label remark;
+    @FXML
+    private Label feeStatus;
 
     /**
      * Creates a {@code StudentCode} with the given {@code Student} and index to display.
@@ -59,6 +62,7 @@ public class StudentCard extends UiPart<Region> {
         email.setText(student.getEmail().value);
         subject.setText(student.getSubject().value);
         remark.setText(student.getRemark().value);
+        feeStatus.setText(student.getFeeStatus().status);
         student.getLessons().stream()
                 .sorted(Comparator.comparing(Lesson::getLessonValue)).filter(lesson -> lesson.getLessonStatus() == 0)
                 .forEach(lesson -> lessons.getChildren().add(new Label(lesson.toString())));

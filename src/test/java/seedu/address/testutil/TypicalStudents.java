@@ -30,12 +30,14 @@ public class TypicalStudents {
             .withPhone("94351253")
             .withSubject("Maths")
             .withRemark("She likes aardvarks.")
+            .withFeeStatus("Paid.")
             .withLessons("Maths|10-05-2004|12:29|1", "Physics|11-05-2004|12:29|0")
             .build();
     public static final Student BENSON = new StudentBuilder().withName("Benson Meier")
             .withAddress("311, Clementi Ave 2, #02-25")
             .withEmail("johnd@example.com").withPhone("98765432")
             .withSubject("Geography")
+            .withFeeStatus("Paid.")
             .withLessons("Geography|10-05-2004|12:29|0")
             .build();
     public static final Student CARL = new StudentBuilder().withName("Carl Kurz").withPhone("95352563")

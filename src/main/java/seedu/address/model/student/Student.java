@@ -19,6 +19,7 @@ public class Student {
     private final Phone phone;
     private final Email email;
     // Data fields
+    private final FeeStatus feeStatus;
     private final Address address;
     private final Remark remark;
     private final Set<Lesson> lessons = new HashSet<>();
@@ -28,7 +29,7 @@ public class Student {
      * Student constructor with all fields.
      */
     public Student(Name name, Phone phone, Email email, Address address, Subject subject,
-                  Remark remark, Set<Lesson> lessons) {
+                  Remark remark, FeeStatus feeStatus, Set<Lesson> lessons) {
         requireAllNonNull(name, phone, email, address, subject, lessons);
         this.name = name;
         this.phone = phone;
@@ -37,6 +38,7 @@ public class Student {
         this.subject = subject;
         this.lessons.addAll(lessons);
         this.remark = remark;
+        this.feeStatus = feeStatus;
     }
 
     public Name getName() {
@@ -49,6 +51,10 @@ public class Student {
 
     public Email getEmail() {
         return email;
+    }
+
+    public FeeStatus getFeeStatus() {
+        return feeStatus;
     }
 
     public Address getAddress() {
@@ -123,6 +129,7 @@ public class Student {
                 .add("address", address)
                 .add("subject", subject)
                 .add("remark", remark)
+                .add("fee status", feeStatus)
                 .add("lessons", lessons)
                 .toString();
     }

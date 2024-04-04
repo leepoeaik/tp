@@ -23,6 +23,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.student.Address;
 import seedu.address.model.student.Email;
+import seedu.address.model.student.FeeStatus;
 import seedu.address.model.student.Lesson;
 import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;
@@ -103,10 +104,11 @@ public class EditCommand extends Command {
         Address updatedAddress = editStudentDescriptor.getAddress().orElse(studentToEdit.getAddress());
         Set<Lesson> updatedLessons = editStudentDescriptor.getLessons().orElse(studentToEdit.getLessons());
         Remark updatedRemark = studentToEdit.getRemark();
+        FeeStatus updatedFeeStatus = studentToEdit.getFeeStatus();
         Subject updatedSubject = editStudentDescriptor.getSubject().orElse(studentToEdit.getSubject());
 
         return new Student(updatedName, updatedPhone, updatedEmail, updatedAddress,
-                updatedSubject, updatedRemark, updatedLessons);
+                updatedSubject, updatedRemark, updatedFeeStatus, updatedLessons);
     }
 
     @Override
