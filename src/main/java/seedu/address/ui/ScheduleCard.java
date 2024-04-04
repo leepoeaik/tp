@@ -29,7 +29,7 @@ public class ScheduleCard extends UiPart<Region> {
     public final String studentName;
 
     @FXML
-    private HBox cardPane;
+    private HBox schedulePane;
     @FXML
     private Label name;
     @FXML

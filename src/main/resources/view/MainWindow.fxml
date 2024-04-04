@@ -74,6 +74,7 @@
                         <Insets bottom="10" left="10" right="10" top="10" />
                      </padding>
                      <children>
+                        <Label text="Upcoming lessons :" />
                         <StackPane fx:id="scheduleListPanelPlaceholder" VBox.vgrow="ALWAYS" />
                      </children>
                   </VBox>
