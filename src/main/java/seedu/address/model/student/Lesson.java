@@ -13,9 +13,12 @@ import java.time.format.DateTimeParseException;
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Lesson {
-    public static final String MESSAGE_CONSTRAINTS =
+    public static final String MESSAGE_CONSTRAINTS_1 =
             "Lessons must be of the form subject|dd-MM-yyyy|hh:mm|0/1, where subject contains only alphabeths"
                     + " and spaces, and indicate lesson incomplete/completed with 0 or 1 respectively.";
+    public static final String MESSAGE_CONSTRAINTS_2 =
+            "Lessons must be of the form dd-MM-yyyy|hh:mm OR dd-MM-yyyy|hh:mm|0/1, where the last field of 0 or 1"
+                    + " is optional, with 0 indicating lesson incomplete and 1 indicating lesson complete.";
     public static final String VALIDATION_REGEX = "^[a-zA-Z][a-zA-Z ]*$";
     public static final String DATE_REGEX = "\\d{2}-\\d{2}-\\d{4}";
     public static final String TIME_REGEX = "\\d{2}:\\d{2}";
@@ -39,7 +42,7 @@ public class Lesson {
         requireNonNull(subject);
         requireNonNull(date);
         requireNonNull(time);
-        checkArgument(subject.matches(VALIDATION_REGEX), MESSAGE_CONSTRAINTS);
+        checkArgument(subject.matches(VALIDATION_REGEX), MESSAGE_CONSTRAINTS_1);
         // assign the attributes to the lesson
         this.subject = new Subject(subject);
         this.date = LocalDate.parse(date.format(DATE_FORMATTER), DATE_FORMATTER);

@@ -193,7 +193,7 @@ public class AddCommandParserTest {
 
         // invalid lesson
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
-                + SUBJECT_DESC_MATHS + INVALID_LESSON_DESC, Lesson.MESSAGE_CONSTRAINTS);
+                + SUBJECT_DESC_MATHS + INVALID_LESSON_DESC, Lesson.MESSAGE_CONSTRAINTS_1);
 
         // two invalid values, only first invalid value reported
         assertParseFailure(parser, INVALID_NAME_DESC + PHONE_DESC_BOB + EMAIL_DESC_BOB
