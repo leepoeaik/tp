@@ -188,6 +188,7 @@
 
 #studentListView {
     -fx-padding : 0 20 0 20;
+    -fx-background-insets: 0;
 }
 
 #upcomingLessonLabel {
