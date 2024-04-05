@@ -323,7 +323,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is `TutorTrack` and the **Actor** is the `Tutor`, unless specified otherwise)
 
-**Use case: UC01 Add a student**
+### **Use case: UC01 Add a student**
 
 **MSS**
 
@@ -340,6 +340,84 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case resumes at step 1.
 
+### **Use case: UC02 Find a student**
+
+**MSS**
+
+1. User enters command to search for a specific student in the list.
+2. System searches for the student.
+3. If the student is found:
+    1. System displays the student's information.
+4. If the student is not found:
+    1. System displays a message indicating that the student was not found.
+
+   Use case ends.
+
+**Extensions**
+
+* 3a. The student is not found.
+    * 3a1. System displays a message indicating that the student was not found.
+    * 3a2. Use case resumes at step 4.
+
+* 1a. The given syntax is incorrect.
+    * 1a1. System shows an error message.
+    * 1a2. Use case resumes at step 1.
+
+### **Use case: UC03 Edit student information**
+
+**MSS**
+
+1. User enters the command to edit a specific student's information, specifying the index of the student and the desired fields to edit (name, phone number, email, address, or lessons).
+2. System verifies the validity of the index and the specified fields.
+3. If the specified student exists and the fields to edit are valid:
+    1. System prompts user to enter the new information for each specified field.
+    2. User enters the new information for each specified field.
+    3. System updates the student's information with the new data.
+4. If the specified student does not exist or the specified fields are invalid:
+    1. System displays an error message indicating the issue.
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. The specified student index is invalid.
+    * 2a1. System displays an error message indicating that the index is invalid.
+    * 2a2. Use case ends.
+
+* 3a. The specified student does not exist or the specified fields are invalid.
+    * 3a1. System displays an error message indicating that the specified student does not exist or the specified fields are invalid.
+    * 3a2. Use case ends.
+
+* 4a. User cancels the editing process.
+    * 4a1. System cancels the editing process and returns to the main menu.
+    * 4a2. Use case ends.
+
+### **Use case: UC04 Schedule lesson for a student**
+
+**MSS**
+
+1. User enters the command to schedule a lesson for a specific student, specifying the index of the student and the lesson to schedule.
+2. System verifies the validity of the index and the specified lesson.
+3. If the specified student exists and the lesson to schedule is valid:
+    1. System schedules the lesson for the student.
+4. If the specified student does not exist or the specified lesson is invalid:
+    1. System displays an error message indicating the issue.
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. The specified student index is invalid.
+    * 2a1. System displays an error message indicating that the index is invalid.
+    * 2a2. Use case ends.
+
+* 3a. The specified student does not exist or the specified lesson is invalid.
+    * 3a1. System displays an error message indicating that the specified student does not exist or the specified lesson is invalid.
+    * 3a2. Use case ends.
+
+* 4a. User cancels the scheduling process by deleting the command.
+    * 4a1. Scheduling process is not done in the System.
+    * 4a2. Use case ends.
 
 
 ### Non-Functional Requirements
@@ -349,9 +427,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 4.  Should be able to hold up to 100 lessons per students without a noticeable sluggishness in performance for typical usage.
 5.  Documentation should cover at least 90% of system functionality and architecture.
-6.  The system should be able to support a minimum of 100 concurrent users without performance degration.
+6.  The system should be able to support a minimum of 100 concurrent users without performance degradation.
 
-*{More to be added}*
 
 ### Glossary
 
