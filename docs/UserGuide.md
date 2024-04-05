@@ -206,9 +206,21 @@ Format : `mark INDEX l/LESSON`
 * `LESSON` must be in the format of `dd-mm-yyyy|hh:mm` 
 
 Examples:
-* `mark 1 l/09-09-2024|10:00` would remove a new lesson at 09-09-2024, 10:00 to the first person on the student list.
+* `mark 1 l/09-09-2024|10:00` would mark a lesson at 09-09-2024, 10:00 as completed to the first person on the student list.
+* Completed lessons will not show up in the list of lessons for the student.
 
 <img width="1552" alt="image" src="https://github.com/AY2324S2-CS2103T-T16-4/tp/assets/99176866/52f1981d-1e73-4aaf-95fb-ba6e8c2db054">
+
+### Add remark to a student : `remark`
+
+Format : `remark INDEX r/REMARK`
+
+* Adds a remark to a student by specifying the `INDEX`.
+* `INDEX` **must be a positive integer** 1, 2, 3, ...
+* `INDEX` refers to the index number shown in the displayed person list.
+
+Examples:
+* `remark 1 r/Student is very hardworking` would add a remark to the first student on the student list.
 
 ### Clearing all entries : `clear`
 
