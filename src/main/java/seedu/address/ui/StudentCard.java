@@ -11,7 +11,7 @@ import seedu.address.model.student.Lesson;
 import seedu.address.model.student.Student;
 
 /**
- * An UI component that displays information of a {@code Student}.
+ * A UI component that displays information of a {@code Student}.
  */
 public class StudentCard extends UiPart<Region> {
 
@@ -45,6 +45,8 @@ public class StudentCard extends UiPart<Region> {
     private FlowPane lessons;
     @FXML
     private Label remark;
+    @FXML
+    private Label feeStatus;
 
     /**
      * Creates a {@code StudentCode} with the given {@code Student} and index to display.
@@ -59,6 +61,7 @@ public class StudentCard extends UiPart<Region> {
         email.setText(student.getEmail().value);
         subject.setText(student.getSubject().value);
         remark.setText(student.getRemark().value);
+        feeStatus.setText(student.getFeeStatus().status);
         student.getLessons().stream()
                 .sorted(Comparator.comparing(Lesson::getLessonValue)).filter(lesson -> lesson.getLessonStatus() == 0)
                 .forEach(lesson -> lessons.getChildren().add(new Label(lesson.toString())));

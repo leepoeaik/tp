@@ -1,7 +1,6 @@
 package seedu.address.model.util;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import seedu.address.logic.parser.ParserUtil;
@@ -33,17 +32,21 @@ public class SampleDataUtil {
             new Student(new Name("Charlotte Oliveiro"), new Phone("93210283"), new Email("charlotte@example.com"),
                 new Address("Blk 11 Ang Mo Kio Street 74, #11-04"),
                     new Subject("Physics")),
+            new Student(new Name("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
+                new Address("Blk 30 Lorong 3 Serangoon Gardens, #07-18"),
+                    new Subject("English")),
+            new Student(new Name("Charlotte Oliveiro"), new Phone("93210283"), new Email("charlotte@example.com"),
+                new Address("Blk 11 Ang Mo Kio Street 74, #11-04"),
+                    new Subject("Physics")),
             new Student(new Name("David Li"), new Phone("91031282"), new Email("lidavid@example.com"),
                 new Address("Blk 436 Serangoon Gardens Street 26, #16-43"),
-                    new Subject("History"),
-                    EMPTY_REMARK, Collections.emptyList()),
+                    new Subject("History")),
             new Student(new Name("Irfan Ibrahim"), new Phone("92492021"), new Email("irfan@example.com"),
                 new Address("Blk 47 Tampines Street 20, #17-35"),
-                    new Subject("Chemistry"),
-                    EMPTY_REMARK, Collections.emptyList()),
+                    new Subject("Chemistry")),
             new Student(new Name("Roy Balakrishnan"), new Phone("92624417"), new Email("royb@example.com"),
                 new Address("Blk 45 Aljunied Street 85, #11-31"),
-                    new Subject("Biology"), EMPTY_REMARK, Collections.emptyList())
+                    new Subject("Biology"))
         };
     }
 

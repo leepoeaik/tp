@@ -43,6 +43,8 @@ public class CommandTestUtil {
     public static final String VALID_LESSON_AMY = "Math|10-05-2002|13:00|0";
     public static final String VALID_LESSON_BOB = "Science|12-06-2003|14:30|0";
 
+    public static final String VALID_FEESTATUS_AMY = "paid";
+    public static final String VALID_FEESTATUS_BOB = "payment by Sunday";
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
     public static final String PHONE_DESC_AMY = " " + PREFIX_PHONE + VALID_PHONE_AMY;

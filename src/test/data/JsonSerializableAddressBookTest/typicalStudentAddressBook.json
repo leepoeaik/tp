@@ -7,6 +7,7 @@
     "address" : "123, Jurong West Ave 6, #08-111",
     "subject" : "Maths",
     "remark" : "She likes aardvarks.",
+    "feeStatus": "",
     "lessons" : [ "Maths|10-05-2004|12:29|1", "Physics|11-05-2004|12:29|0" ]
   }, {
     "name" : "Benson Meier",
@@ -15,6 +16,7 @@
     "address" : "311, Clementi Ave 2, #02-25",
     "subject" : "Geography",
     "remark" : "",
+    "feeStatus": "",
     "lessons" : [ "Geography|10-05-2004|12:29|1" ]
   }, {
     "name" : "Carl Kurz",
@@ -23,6 +25,7 @@
     "address" : "wall street",
     "subject" : "English",
     "remark" : "",
+    "feeStatus": "",
     "lessons" : [ "English|10-05-2004|12:29|0" ]
   }, {
     "name" : "Daniel Meier",
@@ -31,6 +34,7 @@
     "address" : "10th street",
     "subject" : "History",
     "remark" : "",
+    "feeStatus": "",
     "lessons" : [ "Geography|10-05-2004|12:29|0" ]
   }, {
     "name" : "Elle Meyer",
@@ -39,6 +43,7 @@
     "address" : "michegan ave",
     "subject" : "Psychology",
     "remark" : "",
+    "feeStatus": "",
     "lessons" : [ "Geography|10-05-2004|12:29|1" ]
   }, {
     "name" : "Fiona Kunz",
@@ -47,6 +52,7 @@
     "address" : "little tokyo",
     "subject" : "English",
     "remark" : "",
+    "feeStatus": "",
     "lessons" : [ "English|10-05-2004|12:29|0" ]
   }, {
     "name" : "George Best",
@@ -55,6 +61,7 @@
     "address" : "4th street",
     "subject" : "Art",
     "remark" : "",
+    "feeStatus": "",
     "lessons" : [ "Art|10-05-2004|12:29|1" ]
   } ]
 }

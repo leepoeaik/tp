@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import seedu.address.model.student.Address;
 import seedu.address.model.student.Email;
+import seedu.address.model.student.FeeStatus;
 import seedu.address.model.student.Lesson;
 import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;
@@ -28,12 +29,15 @@ public class StudentBuilder {
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     private static final String DEFAULT_REMARK = "";
     private static final String DEFAULT_SUBJECT = "Math";
+    private static final String DEFAULT_FEE_STATUS = "Paid.";
     private static final LocalDate DEFAULT_DATE = LocalDate.parse("10-05-2002", Lesson.DATE_FORMATTER);
     private static final LocalTime DEFAULT_TIME = LocalTime.parse("13:00", Lesson.TIME_FORMATTER);
     private static final Lesson DEFAULT_LESSON = new Lesson(DEFAULT_SUBJECT, DEFAULT_DATE, DEFAULT_TIME);
+
     private Name name;
     private Phone phone;
     private Email email;
+    private FeeStatus feeStatus;
     private Address address;
     private Subject subject;
     private List<Lesson> lessons;
@@ -46,6 +50,7 @@ public class StudentBuilder {
         name = new Name(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
+        feeStatus = new FeeStatus(DEFAULT_FEE_STATUS);
         address = new Address(DEFAULT_ADDRESS);
         subject = new Subject(DEFAULT_SUBJECT);
         lessons = new ArrayList<>();
@@ -59,6 +64,7 @@ public class StudentBuilder {
         name = personToCopy.getName();
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
+        feeStatus = personToCopy.getFeeStatus();
         address = personToCopy.getAddress();
         subject = personToCopy.getSubject();
         lessons = personToCopy.getLessons();
@@ -108,6 +114,14 @@ public class StudentBuilder {
     }
 
     /**
+     * Sets the {@code FeeStatus} of the {@code Student} that we are building.
+     */
+    public StudentBuilder withFeeStatus(String feeStatus) {
+        this.feeStatus = new FeeStatus(feeStatus);
+        return this;
+    }
+
+    /**
      * Sets the {@code Remark} of the {@code Student} that being built.
      */
     public StudentBuilder withRemark(String remark) {
@@ -124,6 +138,6 @@ public class StudentBuilder {
     }
 
     public Student build() {
-        return new Student(name, phone, email, address, subject, remark, lessons);
+        return new Student(name, phone, email, address, subject, remark, feeStatus, lessons);
     }
 }

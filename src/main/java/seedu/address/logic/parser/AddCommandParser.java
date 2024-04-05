@@ -3,6 +3,7 @@ package seedu.address.logic.parser;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_FEESTATUS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_LESSON;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -16,6 +17,7 @@ import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.student.Address;
 import seedu.address.model.student.Email;
+import seedu.address.model.student.FeeStatus;
 import seedu.address.model.student.Lesson;
 import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;
@@ -50,9 +52,11 @@ public class AddCommandParser implements Parser<AddCommand> {
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
         Subject subject = ParserUtil.parseSubject(argMultimap.getValue(PREFIX_SUBJECT).get());
-        Remark remark = new Remark(""); // default value
+        Remark remark = new Remark(argMultimap.getValue(PREFIX_REMARK).orElse("")); // default value
+        FeeStatus feeStatus = new FeeStatus(argMultimap.getValue(PREFIX_FEESTATUS).orElse(""));
         List<Lesson> lessonList = ParserUtil.parseLessons((argMultimap.getAllValues(PREFIX_LESSON)));
-        Student student = new Student(name, phone, email, address, subject, remark, lessonList);
+        Student student = new Student(name, phone, email, address, subject, remark, feeStatus, lessonList);
+
         return new AddCommand(student);
     }
 

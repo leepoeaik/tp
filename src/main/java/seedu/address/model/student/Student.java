@@ -18,6 +18,7 @@ public class Student {
     private final Phone phone;
     private final Email email;
     // Data fields
+    private final FeeStatus feeStatus;
     private final Address address;
     private final Remark remark;
     private List<Lesson> lessons = new ArrayList<>();
@@ -27,8 +28,9 @@ public class Student {
      * Student constructor with all fields.
      */
     public Student(Name name, Phone phone, Email email, Address address, Subject subject,
-                  Remark remark, List<Lesson> lessons) {
+                  Remark remark, FeeStatus feeStatus, List<Lesson> lessons) {
         requireAllNonNull(name, phone, email, address, subject);
+
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -36,9 +38,10 @@ public class Student {
         this.subject = subject;
         this.lessons.addAll(lessons);
         this.remark = remark;
+        this.feeStatus = feeStatus;
     }
     /**
-     * Student constructor with default values for remark and lessons.
+     * Student constructor with default values for remark, fee status and lessons.
      */
     public Student(Name name, Phone phone, Email email, Address address, Subject subject) {
         requireAllNonNull(name, phone, email, address, subject);
@@ -48,6 +51,7 @@ public class Student {
         this.address = address;
         this.subject = subject;
         this.lessons = new ArrayList<>();
+        this.feeStatus = new FeeStatus("");
         this.remark = new Remark("");
     }
 
@@ -61,6 +65,10 @@ public class Student {
 
     public Email getEmail() {
         return email;
+    }
+
+    public FeeStatus getFeeStatus() {
+        return feeStatus;
     }
 
     public Address getAddress() {
@@ -134,6 +142,7 @@ public class Student {
                 .add("address", address)
                 .add("subject", subject)
                 .add("remark", remark)
+                .add("fee status", feeStatus)
                 .add("lessons", lessons)
                 .toString();
     }

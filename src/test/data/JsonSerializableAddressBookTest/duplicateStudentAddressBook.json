@@ -6,6 +6,7 @@
     "address": "123, Jurong West Ave 6, #08-111",
     "subject": "Science",
     "remark": "",
+    "feeStatus": "",
     "lessons": [ "Maths|10-05-2004|12:29|0" ]
   }, {
     "name": "Alice Pauline",
@@ -14,6 +15,7 @@
     "address": "4th street",
     "subject": "Science",
     "remark": "",
+    "feeStatus": "",
     "lessons": [ "Maths|10-05-2004|12:29|0" ]
   } ]
 }
