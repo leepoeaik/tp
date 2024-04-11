@@ -194,7 +194,7 @@ Examples:
 
 <img width="1552" alt="image" src="https://github.com/AY2324S2-CS2103T-T16-4/tp/assets/99176866/09b27706-101d-4d7c-b480-4c482c752e31">
 
-### Mark a lessson schedule : `schedule`
+### Mark a lessson schedule : `mark`
 
 Mark a lesson as complete to a specific student and removing it from displaying.
 
