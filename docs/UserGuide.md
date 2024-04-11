@@ -39,7 +39,7 @@ TutorTrack is a **desktop app for tutors to manage their students and scheduled 
 
 **Features** : Each feature and what they do are listed with their commands for you to understand what our app can do. </br>
 
-**Examples** : Under each feature, examples of commands and ui are given for you to better understand how the app should work.</br>
+**Examples** : Under each feature, examples of commands and UI are given for you to better understand how the app should work.</br>
 
 **Getting started** : For first time users, refer to the "Quick start" segment to start up the app for the first time 
 
@@ -84,10 +84,10 @@ TutorTrack is a **desktop app for tutors to manage their students and scheduled 
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
 * Items in square brackets are optional.<br>
-  e.g `n/NAME [l/LESSON]` can be used as `n/John Doe l/Physics|2024-05-01|09:00` or as `n/John Doe`.
+  e.g `n/NAME [l/LESSON]` can be used as `n/John Doe l/2024-05-01|09:00` or as `n/John Doe`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[l/LESSON]…​` can be used as ` ` (i.e. 0 times), `l/Physics|2024-05-01|09:00`, `l/Maths|2024-05-03|10:30 l/Biology|2024-05-05|11:00` etc.
+  e.g. `[l/LESSON]…​` can be used as ` ` (i.e. 0 times), `l/2024-05-01|09:00`, `l/Maths|2024-05-03|10:30 l/Biology|2024-05-05|11:00` etc.
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
