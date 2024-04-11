@@ -271,17 +271,17 @@ _Details coming soon ..._
 ## Command summary
 
 
-Action      | Format, Examples
-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Add**     | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS s/SUBJECT [l/LESSON]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 s/Maths l/Maths|2024-05-03|10:30`
-**Clear**   | `clear`
-**Delete**  | `delete INDEX`<br> e.g., `delete 3`
-**Edit**    | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [l/LESSONS]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Fee Status**| `feestatus INDEX f/FEESTATUS`
-**Find**    | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**Remark**| `remark INDEX r/REMARK` <br> e.g., `remark 1 r/Needs extra practice`
-**Schedule**| `schedule INDEX l/LESSON` <br> e.g., `schedule 1 l/Maths|2024-05-03|10:30`
-**Mark**    | `mark INDEX l/LESSON`
-**List**    | `list`
-**Help**    | `help`
+ Action         | Format, Examples                                                                                                                                                                                  
+----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ **Add**        | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS s/SUBJECT [l/LESSON]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 s/Maths l/Maths \|2024-05-03\|10:30` 
+ **Clear**      | `clear`                                                                                                                                                                                           
+ **Delete**     | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                               
+ **Edit**       | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [l/LESSON]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                                    
+ **Fee Status** | `feestatus INDEX f/FEESTATUS`                                                                                                                                                                     
+ **Find**       | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                        
+ **Remark**     | `remark INDEX r/REMARK` <br> e.g., `remark 1 r/Needs extra practice`                                                                                                                              
+ **Schedule**   | `schedule INDEX l/LESSON` <br> e.g., `schedule 1 l/ 20-05-2024\|10:30`                                                                                                                            
+ **Mark**       | `mark INDEX l/LESSON`                                                                                                                                                                             
+ **List**       | `list`                                                                                                                                                                                            
+ **Help**       | `help`                                                                                                                                                                                            
 
