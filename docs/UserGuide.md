@@ -9,7 +9,7 @@
 TutorTrack is a **desktop app for tutors to manage their students and scheduled classes, optimized for use via a Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, TutorTrack can get your contact management tasks done faster than traditional GUI apps.
 
 <!-- * Table of Contents -->
-### What is in this user guide:
+### What is in this user guide ?
 - Quick start
 - Features
   - Help : Viewing help
