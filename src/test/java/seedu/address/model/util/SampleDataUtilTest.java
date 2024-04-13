@@ -17,7 +17,7 @@ public class SampleDataUtilTest {
     @Test
     void getSampleStudents() {
         Student[] sampleStudents = SampleDataUtil.getSampleStudents();
-        assertEquals(8, sampleStudents.length);
+        assertEquals(6, sampleStudents.length);
     }
 
     @Test
