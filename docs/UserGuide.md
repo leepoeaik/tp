@@ -1,76 +1,78 @@
----
-  layout: default.md
-  title: "User Guide"
-  pageNav: 3
----
+# _TutorTrack User Guide_ 
+******
 
-# TutorTrack User Guide 
+TutorTrack is a **desktop application for tutors to manage their students and scheduled classes, optimized for use via a 
+Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type 
+fast, TutorTrack can get your contact management tasks done faster than traditional GUI apps.
 
-TutorTrack is a **desktop app for tutors to manage their students and scheduled classes, optimized for use via a Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, TutorTrack can get your contact management tasks done faster than traditional GUI apps.
+## How to use this guide
+********
+**Navigation** :  Use the table of contents to find the section you are looking for. </br>
 
-<!-- * Table of Contents -->
-### What is in this user guide ?
-- Quick start
-- Features
-  - Help : Viewing help
-  - Add : Adding a student
-  - List : Listing all students
-  - Edit : Editing a student
-  - Find : Finding a student
-  - Schedule: Scheduling a lesson
-  - Mark: Marking a lesson as done
-  - Remark: Add remark to a student
-  - Delete : Deleting a student
-  - Schedule : Adding a lesson schedule to a student
-  - Mark : Mark a lesson as complete
-  - Clear : Clearing all entries 
-  - Exit : Exiting the program
+**Features** : Each feature and what it does is listed with its respective command for you to understand what Tutor
+Track can do.</br>
+
+**Examples** : Under each feature, examples of commands and UI are given for you to better understand how Tutor Track
+works.</br>
+
+**Getting started** : For first time users, refer to the "Quick start" segment to start up Tutor Track for the first
+time.
+
+## What is in this User Guide:
+*********
+- [Quick start](#quick-start)
+- [Features](#features)
+  - [`Help` : Viewing help](#viewing-help--help)
+  - [`Add` : Adding a student](#adding-a-student-add)
+  - [`List` : Listing all students](#listing-all-students--list)
+  - [`Edit` : Editing a student](#editing-a-student--edit)
+  - [`Find` : Finding a student](#locating-students-by-name-find)
+  - [`Schedule`: Scheduling a lesson](#add-a-lessson-schedule--schedule)
+  - [`Mark`: Marking a lesson as done](#mark-a-lessson-schedule--mark)
+  - [`Remark`: Add remark to a student](#add-remark-to-a-student--remark)
+  - [`Delete` : Deleting a student](#deleting-a-student--delete)
+  - [`Schedule` : Adding a lesson schedule to a student](#add-a-lessson-schedule--schedule)
+  - [`Clear` : Clearing all entries](#clearing-all-entries--clear) 
+  - [`Exit` : Exiting the program](#exiting-the-program--exit)
   - Saving data
   - Editing the data file
   - Archiving data files 
-- FAQs
-- Known issues
-- Command summary
+- [FAQs](#faq)
+- [Known issues](#known-issues)
+- [Command summary](#command-summary)
 
-<page-nav-print />
-
-### How to use this guide 
-**Navigation** :  Use the table of contents to find the section you are looking for. </br>
-
-**Features** : Each feature and what they do are listed with their commands for you to understand what our app can do. </br>
-
-**Examples** : Under each feature, examples of commands and ui are given for you to better understand how the app should work.</br>
-
-**Getting started** : For first time users, refer to the "Quick start" segment to start up the app for the first time 
-
---------------------------------------------------------------------------------------------------------------------
+------
 
 ## Quick start
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `TutorTrack.jar` from [here](https://github.com/AY2324S2-CS2103T-T16-4/tp/releases).
+2. Download the latest `TutorTrack.jar` from [here](https://github.com/AY2324S2-CS2103T-T16-4/tp/releases).
 
-1. Copy the file to the folder you want to use as the _home folder_ for your TutorTrack.
+3. Copy the file to the folder you want to use as the _home folder_ for your TutorTrack.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar TutorTrack.jar` command to run the application.<br>
+4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar TutorTrack.jar` 
+command to run the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
-   Some example commands you can try:
+5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will 
+open the help window.<br>
+   
+Here are some example commands you can try:
 
-   * `list` : Lists all contacts.
+   * `list` : Lists all students.
 
-   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 s/Maths` : Adds a student named `John Doe` to the Address Book.
+   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 s/Maths` : Adds a student named 
+`John Doe` to the Address Book.
 
    * `delete 3` : Deletes the 3rd student shown in the current list.
 
-   * `clear` : Deletes all contacts.
+   * `clear` : Deletes all students.
 
-   * `exit` : Exits the app.
+   * `exit` : Exits the Tutor Track application.
 
-1. Refer to the [Features](#features) below for details of each command.
+1. Refer to the [Features](#features) below for the details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -84,10 +86,10 @@ TutorTrack is a **desktop app for tutors to manage their students and scheduled 
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
 * Items in square brackets are optional.<br>
-  e.g `n/NAME [l/LESSON]` can be used as `n/John Doe l/Physics|2024-05-01|09:00` or as `n/John Doe`.
+  e.g `n/NAME [l/LESSON]` can be used as `n/John Doe l/2024-05-01|09:00` or as `n/John Doe`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[l/LESSON]…​` can be used as ` ` (i.e. 0 times), `l/Physics|2024-05-01|09:00`, `l/Maths|2024-05-03|10:30 l/Biology|2024-05-05|11:00` etc.
+  e.g. `[l/LESSON]…​` can be used as ` ` (i.e. 0 times), `l/2024-05-01|09:00`, `l/Maths|2024-05-03|10:30 l/Biology|2024-05-05|11:00` etc.
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
@@ -100,14 +102,14 @@ TutorTrack is a **desktop app for tutors to manage their students and scheduled 
 
 ### Viewing help : `help`
 
-Shows a message explaning how to access the help page.
+Shows a message with a link to access the help page.
 
 ![help message](images/helpMessage.png)
 
 Format: `help`
 
 
-### Adding a person: `add`
+### Adding a Student: `add`
 
 Adds a student to the address book.
 
@@ -122,14 +124,20 @@ Examples:
 * `add n/John Poe p/84920491 e/poe@yuh.com a/RVRC s/Physics`
 ![addStudentExample.png](addStudentExample.png)
 
-### Listing all students : `list`
+> Here are some **constraints** for the `add` command.
+> - `NAME` can be alphanumeric with spaces, and should not contain any special characters. <br>
+> - `NAME` should be unique. <br>
+> - Note that "John Doe" would be considered different from "john doe" i.e. capitalisation renders names unique. <br>
+> - `PHONE_NUMBER` can be any sequence of digits of any length.
+
+### Listing all Students : `list`
 
 Shows a list of all students in the address book.
 
 Format: `list`
 
 
-### Editing a student : `edit`
+### Editing a Student : `edit`
 
 Edits an existing student in the address book.
 
@@ -164,7 +172,7 @@ Examples:
 ![findCommandExample.png](findCommandExample.png)
 
 
-### Deleting a person : `delete`
+### Deleting a Student : `delete`
 
 Deletes the specified person from the address book.
 
@@ -194,7 +202,7 @@ Examples:
 
 <img width="1552" alt="image" src="https://github.com/AY2324S2-CS2103T-T16-4/tp/assets/99176866/09b27706-101d-4d7c-b480-4c482c752e31">
 
-### Mark a lessson schedule : `schedule`
+### Mark a lessson schedule : `mark`
 
 Mark a lesson as complete to a specific student and removing it from displaying.
 
@@ -271,17 +279,17 @@ _Details coming soon ..._
 ## Command summary
 
 
-Action      | Format, Examples
-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Add**     | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS s/SUBJECT [l/LESSON]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 s/Maths l/Maths|2024-05-03|10:30`
-**Clear**   | `clear`
-**Delete**  | `delete INDEX`<br> e.g., `delete 3`
-**Edit**    | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [l/LESSONS]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Fee Status**| `feestatus INDEX f/FEESTATUS`
-**Find**    | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**Remark**| `remark INDEX r/REMARK` <br> e.g., `remark 1 r/Needs extra practice`
-**Schedule**| `schedule INDEX l/LESSON` <br> e.g., `schedule 1 l/Maths|2024-05-03|10:30`
-**Mark**    | `mark INDEX l/LESSON`
-**List**    | `list`
-**Help**    | `help`
+ Action         | Format, Examples                                                                                                                                                                                  
+----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ **Add**        | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS s/SUBJECT [l/LESSON]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 s/Maths l/Maths \|2024-05-03\|10:30` 
+ **Clear**      | `clear`                                                                                                                                                                                           
+ **Delete**     | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                               
+ **Edit**       | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [l/LESSON]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                                    
+ **Fee Status** | `feestatus INDEX f/FEESTATUS`                                                                                                                                                                     
+ **Find**       | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                        
+ **Remark**     | `remark INDEX r/REMARK` <br> e.g., `remark 1 r/Needs extra practice`                                                                                                                              
+ **Schedule**   | `schedule INDEX l/LESSON` <br> e.g., `schedule 1 l/ 20-05-2024\|10:30`                                                                                                                            
+ **Mark**       | `mark INDEX l/LESSON`                                                                                                                                                                             
+ **List**       | `list`                                                                                                                                                                                            
+ **Help**       | `help`                                                                                                                                                                                            
 
