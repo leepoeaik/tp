@@ -1,76 +1,79 @@
----
-  layout: default.md
-  title: "User Guide"
-  pageNav: 3
----
 
-# TutorTrack User Guide 
+# _TutorTrack User Guide_ 
+******
 
-TutorTrack is a **desktop app for tutors to manage their students and scheduled classes, optimized for use via a Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, TutorTrack can get your contact management tasks done faster than traditional GUI apps.
+TutorTrack is a **desktop application for tutors to manage their students and scheduled classes, optimized for use via a 
+Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type 
+fast, TutorTrack can get your contact management tasks done faster than traditional GUI apps.
 
-<!-- * Table of Contents -->
-### What is in this user guide:
-- Quick start
-- Features
-  - Help : Viewing help
-  - Add : Adding a student
-  - List : Listing all students
-  - Edit : Editing a student
-  - Find : Finding a student
-  - Schedule: Scheduling a lesson
-  - Mark: Marking a lesson as done
-  - Remark: Add remark to a student
-  - Delete : Deleting a student
-  - Schedule : Adding a lesson schedule to a student
-  - Mark : Mark a lesson as complete
-  - Clear : Clearing all entries 
-  - Exit : Exiting the program
+## How to use this guide
+********
+**Navigation** :  Use the table of contents to find the section you are looking for. </br>
+
+**Features** : Each feature and what it does is listed with its respective command for you to understand what Tutor
+Track can do.</br>
+
+**Examples** : Under each feature, examples of commands and UI are given for you to better understand how Tutor Track
+works.</br>
+
+**Getting started** : For first time users, refer to the "Quick start" segment to start up Tutor Track for the first
+time.
+
+## What is in this User Guide:
+*********
+- [Quick start](#quick-start)
+- [Features](#features)
+  - [`Help` : Viewing help](#viewing-help--help)
+  - [`Add` : Adding a student](#adding-a-student-add)
+  - [`List` : Listing all students](#listing-all-students--list)
+  - [`Edit` : Editing a student](#editing-a-student--edit)
+  - [`Find` : Finding a student](#locating-students-by-name-find)
+  - [`Schedule`: Scheduling a lesson](#add-a-lessson-schedule--schedule)
+  - [`Mark`: Marking a lesson as done](#mark-a-lessson-schedule--mark)
+  - [`Remark`: Add remark to a student](#add-remark-to-a-student--remark)
+  - [`Delete` : Deleting a student](#deleting-a-student--delete)
+  - [`Schedule` : Adding a lesson schedule to a student](#add-a-lessson-schedule--schedule)
+  - [`Clear` : Clearing all entries](#clearing-all-entries--clear) 
+  - [`Exit` : Exiting the program](#exiting-the-program--exit)
   - Saving data
   - Editing the data file
   - Archiving data files 
-- FAQs
-- Known issues
-- Command summary
+- [FAQs](#faq)
+- [Known issues](#known-issues)
+- [Command summary](#command-summary)
 
-<page-nav-print />
-
-### How to use this guide 
-**Navigation** :  Use the table of contents to find the section you are looking for. </br>
-
-**Features** : Each feature and what they do are listed with their commands for you to understand what our app can do. </br>
-
-**Examples** : Under each feature, examples of commands and UI are given for you to better understand how the app should work.</br>
-
-**Getting started** : For first time users, refer to the "Quick start" segment to start up the app for the first time 
-
---------------------------------------------------------------------------------------------------------------------
+------
 
 ## Quick start
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `TutorTrack.jar` from [here](https://github.com/AY2324S2-CS2103T-T16-4/tp/releases).
+2. Download the latest `TutorTrack.jar` from [here](https://github.com/AY2324S2-CS2103T-T16-4/tp/releases).
 
-1. Copy the file to the folder you want to use as the _home folder_ for your TutorTrack.
+3. Copy the file to the folder you want to use as the _home folder_ for your TutorTrack.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar TutorTrack.jar` command to run the application.<br>
+4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar TutorTrack.jar` 
+command to run the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
-   Some example commands you can try:
+5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will 
+open the help window.<br>
+   
+Here are some example commands you can try:
 
-   * `list` : Lists all contacts.
+   * `list` : Lists all students.
 
-   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 s/Maths` : Adds a student named `John Doe` to the Address Book.
+   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 s/Maths` : Adds a student named 
+`John Doe` to the Address Book.
 
    * `delete 3` : Deletes the 3rd student shown in the current list.
 
-   * `clear` : Deletes all contacts.
+   * `clear` : Deletes all students.
 
-   * `exit` : Exits the app.
+   * `exit` : Exits the Tutor Track application.
 
-1. Refer to the [Features](#features) below for details of each command.
+1. Refer to the [Features](#features) below for the details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -100,14 +103,14 @@ TutorTrack is a **desktop app for tutors to manage their students and scheduled 
 
 ### Viewing help : `help`
 
-Shows a message explaning how to access the help page.
+Shows a message with a link to access the help page.
 
 ![help message](images/helpMessage.png)
 
 Format: `help`
 
 
-### Adding a person: `add`
+### Adding a Student: `add`
 
 Adds a student to the address book.
 
@@ -122,14 +125,20 @@ Examples:
 * `add n/John Poe p/84920491 e/poe@yuh.com a/RVRC s/Physics`
 ![addStudentExample.png](addStudentExample.png)
 
-### Listing all students : `list`
+> Here are some **constraints** for the `add` command.
+> - `NAME` can be alphanumeric with spaces, and should not contain any special characters. <br>
+> - `NAME` should be unique. <br>
+> - Note that "John Doe" would be considered different from "john doe" i.e. capitalisation renders names unique. <br>
+> - `PHONE_NUMBER` can be any sequence of digits of any length.
+
+### Listing all Students : `list`
 
 Shows a list of all students in the address book.
 
 Format: `list`
 
 
-### Editing a student : `edit`
+### Editing a Student : `edit`
 
 Edits an existing student in the address book.
 
@@ -164,7 +173,7 @@ Examples:
 ![findCommandExample.png](findCommandExample.png)
 
 
-### Deleting a person : `delete`
+### Deleting a Student : `delete`
 
 Deletes the specified person from the address book.
 
