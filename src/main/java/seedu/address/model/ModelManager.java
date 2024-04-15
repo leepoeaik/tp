@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
@@ -119,7 +120,7 @@ public class ModelManager implements Model {
      */
     @Override
     public ObservableList<Student> getFilteredStudentList() {
-        return filteredStudents;
+        return FXCollections.unmodifiableObservableList(filteredStudents);
     }
 
     @Override

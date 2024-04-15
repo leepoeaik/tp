@@ -1,21 +1,22 @@
 package seedu.address.ui;
 
-import java.util.Comparator;
+import static seedu.address.model.student.Lesson.DATE_FORMATTER;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.util.Pair;
 import seedu.address.model.student.Lesson;
 import seedu.address.model.student.Student;
 
 /**
- * A UI component that displays information of a {@code Student}.
+ * An UI component that displays information of a {@code Student}.
  */
-public class StudentCard extends UiPart<Region> {
+public class ScheduleCard extends UiPart<Region> {
 
-    private static final String FXML = "StudentListCard.fxml";
+    private static final String FXML = "ScheduleListCard.fxml";
 
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
@@ -25,7 +26,8 @@ public class StudentCard extends UiPart<Region> {
      * @see <a href="https://github.com/se-edu/addressbook-level4/issues/336">The issue on AddressBook level 4</a>
      */
 
-    public final Student student;
+    public final Lesson lesson;
+    public final String studentName;
 
     @FXML
     private HBox cardPane;
@@ -42,28 +44,25 @@ public class StudentCard extends UiPart<Region> {
     @FXML
     private Label subject;
     @FXML
+    private Label date;
+    @FXML
+    private Label time;
+    @FXML
     private FlowPane lessons;
     @FXML
     private Label remark;
-    @FXML
-    private Label feeStatus;
 
     /**
      * Creates a {@code StudentCode} with the given {@code Student} and index to display.
      */
-    public StudentCard(Student student, int displayedIndex) {
+    public ScheduleCard(Pair<Student, Lesson> pair, int displayedIndex) {
         super(FXML);
-        this.student = student;
+        this.lesson = pair.getValue();
+        this.studentName = pair.getKey().getName().toString();
         id.setText(displayedIndex + ". ");
-        name.setText(student.getName().fullName);
-        phone.setText(student.getPhone().value);
-        address.setText(student.getAddress().value);
-        email.setText(student.getEmail().value);
-        subject.setText(student.getSubject().value);
-        remark.setText(student.getRemark().value);
-        feeStatus.setText(student.getFeeStatus().status);
-        student.getLessons().stream()
-                .sorted(Comparator.comparing(Lesson::getLessonValue)).filter(lesson -> lesson.getLessonStatus() == 0)
-                .forEach(lesson -> lessons.getChildren().add(new Label(lesson.toString())));
+        name.setText(studentName);
+        subject.setText(lesson.getSubject().value);
+        date.setText(lesson.getDate().format(DATE_FORMATTER));
+        time.setText(lesson.getTime().toString());
     }
 }

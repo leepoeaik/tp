@@ -281,9 +281,9 @@ _{Explain here how the data archiving feature will be implemented}_
 * prefers typing to mouse interactions
 * prefers to view all their students in a centralized platform instead of across separate apps
 
-**Value proposition**: TutorTrack revolutionizes private tutoring with intuitive keyboard navigation, integrated 
-calendar features, and detailed student profiles. </br> Automated reminders keep tutors organized while robust 
-security measures and responsive support ensure a seamless user experience. </br> Experience efficient student management 
+**Value proposition**: TutorTrack revolutionizes private tutoring with intuitive keyboard navigation, integrated
+calendar features, and detailed student profiles. </br> Automated reminders keep tutors organized while robust
+security measures and responsive support ensure a seamless user experience. </br> Experience efficient student management
 with TutorTrack – the ultimate solution for private tutors.
 
 
@@ -303,13 +303,28 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | freelance tutor | schedule meeting times with students                   | set lessons                                                               |
 | `* * *`  | freelance tutor | delete meeting times with students                     | cancel lessons                                                            |
 | `* *`    | freelance tutor | edit meeting times with students                       | reschedule lessons                                                        |
+| `* `     | freelance tutor | view meeting times in a calender view with students    | track when I have scheduled lessons                                       |
+| `*`      | freelance tutor | mark attendance for each week                          | keep an accurate record of student attendance and participation over time |
+| `*`      | freelance tutor | edit milestones on the progress tracker                | change milestone plans anytime                                            |
+| `* `     | freelance tutor | add milestones to a progress tracker                   | keep track of topics covered                                              |
+| `*`      | student         | access a summary page with my progress information     | keep track of my progress                                                 |
+| `*`      | freelance tutor | view my schedule in a calendar form                    | keep track of lessons for the week/day                                    |
+| `*`      | freelance tutor | view a progress tracking meter                         | have a visual representation of a students progress                       |
+| `* `     | new user        | create account using email                             | have an account that stores all the information                           |
+| `* `     | registered user | login to my account                                    | all the information is tracked and stored properly in the account         |
+| `* `     | freelance tutor | upload files and materials                             | students can access to them                                               |
+| `*`      | student         | download files and materials                           | review and revise the materials                                           |
+| `*`      | freelance tutor | send message to students                               | chat with them                                                            |
+| `*`      | student         | receive message from tutor                             | be informed with any announcements                                        |
+| `*`      | student         | receive notification from messages                     | be aware of messages send by tutors                                       |
 | `*`      | freelance tutor | note down basic lesson plans (remarks) for each lesson | have a structure to follow for each lesson                                |
+plans (remarks) for each lesson | have a structure to follow for each lesson                                |
 
 ### Use cases
 
 (For all use cases below, the **System** is `TutorTrack` and the **Actor** is the `Tutor`, unless specified otherwise)
 
-**Use case: UC01 Add a student**
+### **Use case: UC01 Add a student**
 
 **MSS**
 
@@ -437,7 +452,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     1b1. TutorTrack shows an error message.
     Use case ends.
 
-
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
@@ -445,9 +459,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 4.  Should be able to hold up to 100 lessons per students without a noticeable sluggishness in performance for typical usage.
 5.  Documentation should cover at least 90% of system functionality and architecture.
-6.  The system should be able to support a minimum of 100 concurrent users without performance degration.
+6.  The system should be able to support a minimum of 100 concurrent users without performance degradation.
 
-*{More to be added}*
 
 ### Glossary
 

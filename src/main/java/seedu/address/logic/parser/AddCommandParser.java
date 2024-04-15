@@ -3,19 +3,21 @@ package seedu.address.logic.parser;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_FEESTATUS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_LESSON;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SUBJECT;
 
-import java.util.Set;
+import java.util.List;
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.student.Address;
 import seedu.address.model.student.Email;
+import seedu.address.model.student.FeeStatus;
 import seedu.address.model.student.Lesson;
 import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;
@@ -37,6 +39,10 @@ public class AddCommandParser implements Parser<AddCommand> {
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
                 PREFIX_ADDRESS, PREFIX_SUBJECT, PREFIX_REMARK, PREFIX_LESSON);
 
+        if (arePrefixesPresent(argMultimap, PREFIX_LESSON)) {
+            throw new ParseException(String.format(AddCommand.MESSAGE_CONSTRAINTS));
+        }
+
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL,
                 PREFIX_SUBJECT)
                 || !argMultimap.getPreamble().isEmpty()) {
@@ -49,10 +55,12 @@ public class AddCommandParser implements Parser<AddCommand> {
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
-        Set<Lesson> lessonList = ParserUtil.parseLessons(argMultimap.getAllValues(PREFIX_LESSON));
         Subject subject = ParserUtil.parseSubject(argMultimap.getValue(PREFIX_SUBJECT).get());
         Remark remark = new Remark(argMultimap.getValue(PREFIX_REMARK).orElse("")); // default value
-        Student student = new Student(name, phone, email, address, subject, remark, lessonList);
+        FeeStatus feeStatus = new FeeStatus(argMultimap.getValue(PREFIX_FEESTATUS).orElse(""));
+        List<Lesson> lessonList = ParserUtil.parseLessons((argMultimap.getAllValues(PREFIX_LESSON)));
+        Student student = new Student(name, phone, email, address, subject, remark, feeStatus, lessonList);
+
         return new AddCommand(student);
     }
 

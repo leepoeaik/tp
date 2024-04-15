@@ -1,14 +1,14 @@
 package seedu.address.model.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.logic.parser.ParserUtil;
+import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.student.Lesson;
 import seedu.address.model.student.Student;
 
@@ -21,16 +21,10 @@ public class SampleDataUtilTest {
     }
 
     @Test
-    void getSampleAddressBook() {
-        ReadOnlyAddressBook addressBook = SampleDataUtil.getSampleAddressBook();
-        assertNotNull(addressBook);
-    }
-
-    @Test
-    void getLessonSet() {
-        Set<Lesson> lessonSet = SampleDataUtil.getLessonSet("Maths|10-05-2004|12:29|0", "English|10-05-2004|12:29|1");
-        assertEquals(2, lessonSet.size());
-        assertTrue(lessonSet.contains(new Lesson("Maths|10-05-2004|12:29|0")));
-        assertTrue(lessonSet.contains(new Lesson("English|10-05-2004|12:29|1")));
+    void getLessonList() throws ParseException {
+        List<Lesson> lessonList = SampleDataUtil.getLessonList("Maths|10-05-2004|12:29", "English|10-05-2004|12:29");
+        assertEquals(2, lessonList.size());
+        assertTrue(lessonList.contains(ParserUtil.parseLesson("Maths|10-05-2004|12:29")));
+        assertTrue(lessonList.contains(ParserUtil.parseLesson("English|10-05-2004|12:29")));
     }
 }

@@ -38,11 +38,13 @@ public class CommandTestUtil {
     public static final String VALID_ADDRESS_BOB = "Block 123, Bobby Street 3";
     public static final String VALID_REMARK_BOB = "Likes to swim";
     public static final String VALID_REMARK_AMY = "Likes to run";
-    public static final String VALID_SUBJECT_AMY = "Maths";
+    public static final String VALID_SUBJECT_AMY = "Math";
     public static final String VALID_SUBJECT_BOB = "Science";
-    public static final String VALID_LESSON_AMY = "Math|10-05-2002|10:00|0";
-    public static final String VALID_LESSON_BOB = "Science|12-06-2003|14:30|1";
+    public static final String VALID_LESSON_AMY = "Math|10-05-2002|13:00|0";
+    public static final String VALID_LESSON_BOB = "Science|12-06-2003|14:30|0";
 
+    public static final String VALID_FEESTATUS_AMY = "paid";
+    public static final String VALID_FEESTATUS_BOB = "payment by Sunday";
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
     public static final String PHONE_DESC_AMY = " " + PREFIX_PHONE + VALID_PHONE_AMY;
@@ -55,7 +57,7 @@ public class CommandTestUtil {
     public static final String LESSON_DESC_INCOMPLETE = " " + PREFIX_LESSON + VALID_LESSON_AMY;
     public static final String SUBJECT_DESC_MATHS = " " + PREFIX_SUBJECT + VALID_SUBJECT_AMY;
     public static final String SUBJECT_DESC_SCIENCE = " " + PREFIX_SUBJECT + VALID_SUBJECT_BOB;
-    public static final String LESSON_DESC_AMY = " " + PREFIX_LESSON + VALID_SUBJECT_AMY;
+    public static final String LESSON_DESC_AMY = " " + PREFIX_LESSON + VALID_LESSON_AMY;
     public static final String REMARK_DESC_AMY = " " + PREFIX_REMARK + VALID_REMARK_AMY;
     public static final String REMARK_DESC_BOB = " " + PREFIX_REMARK + VALID_REMARK_BOB;
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
