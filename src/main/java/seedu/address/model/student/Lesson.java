@@ -16,7 +16,6 @@ public class Lesson {
     public static final String MESSAGE_CONSTRAINTS_1 =
             "Lessons must be of the form subject|dd-MM-yyyy|hh:mm, where subject contains only alphabets"
                     + " and spaces.";
-  
     public static final String VALIDATION_REGEX = "^[a-zA-Z][a-zA-Z ]*$";
     public static final String DATE_REGEX = "\\d{2}-\\d{2}-\\d{4}";
     public static final String TIME_REGEX = "\\d{2}:\\d{2}";

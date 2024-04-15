@@ -1,14 +1,14 @@
-# _TutorTrack User Guide_ 
+# _TutorTrack User Guide_
 
-Tutor Track is a **desktop application for tutors to manage their students and scheduled classes, optimized for use via a 
-Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type 
+Tutor Track is a **desktop application for tutors to manage their students and scheduled classes, optimized for use via a
+Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type
 fast, TutorTrack can get your contact management tasks done faster than traditional GUI apps.
 
 ## How to use this guide
 ********
 **Navigation** :  Use the table of contents to find the section you are looking for. </br>
 
-**Features** : Each feature and what it does is listed with its respective command for you to understand what Tutor 
+**Features** : Each feature and what it does is listed with its respective command for you to understand what Tutor
 Track can do.</br>
 
 **Examples** : Under each feature, examples of commands and UI are given for you to better understand how Tutor Track
@@ -32,7 +32,7 @@ time.
   - [`Remark`: Add remark to a student](#add-remark-to-a-student--remark)
   - [`Fee status`: Add a fee status for a student](#add-a-fee-status-for-a-student-feestatus)
   - [`Left-click`: View a particular student's lessons](#viewing-a-particular-students-lesson--mouse-click)
-  - [`Clear` : Clearing all entries](#clearing-all-entries--clear) 
+  - [`Clear` : Clearing all entries](#clearing-all-entries--clear)
   - [`Exit` : Exiting the program](#exiting-the-program--exit)
   - [Saving data](#saving-the-data)
   - [Editing the data file](#editing-the-data-file)
@@ -50,19 +50,19 @@ time.
 
 3. Copy the file to the folder you want to use as the _home folder_ for your TutorTrack.
 
-4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar TutorTrack.jar` 
+4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar TutorTrack.jar`
 command to run the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
-5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will 
+5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will
 open the help window.<br>
-   
+
 Here are some example commands you can try:
 
    * `list` : Lists all students.
 
-   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 s/Maths` : Adds a student named 
+   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 s/Maths` : Adds a student named
 `John Doe` to Tutor Track.
 
    * `delete 3` : Deletes the 3rd student shown in the current list.
@@ -88,17 +88,17 @@ Here are some example commands you can try:
   e.g `n/NAME [l/LESSON]` can be used as `n/John Doe l/2024-05-01|09:00` or as `n/John Doe`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[l/LESSON]…​` can be used as ` ` (i.e. 0 times), `l/2024-05-01|09:00`, `l/Maths|2024-05-03|10:30 
+  e.g. `[l/LESSON]…​` can be used as ` ` (i.e. 0 times), `l/2024-05-01|09:00`, `l/Maths|2024-05-03|10:30
 * l/Biology|2024-05-05|11:00` etc.
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will 
+* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will
 be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
-* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple 
+* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple
 lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </box>
 
@@ -148,7 +148,7 @@ Edits an existing student in the address book.
 
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [s/SUBJECT]…​`
 
-* Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. 
+* Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list.
 The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
@@ -206,7 +206,7 @@ Format : `schedule INDEX l/LESSON`
 Examples:
 * `schedule 1 l/09-09-2024|10:00` would add a new lesson at 09-09-2024, 10:00 to the first person on the student list.
 
-<img width="1552" alt="image" 
+<img width="1552" alt="image"
 src="https://github.com/AY2324S2-CS2103T-T16-4/tp/assets/99176866/09b27706-101d-4d7c-b480-4c482c752e31">
 
 
@@ -228,7 +228,7 @@ Example:
 * `mark 1 l/09-09-2024|10:00` would mark a lesson at 09-09-2024, 10:00 as completed to the first person on the student list.
 
 
-<img width="1552" alt="image" 
+<img width="1552" alt="image"
 src="https://github.com/AY2324S2-CS2103T-T16-4/tp/assets/99176866/52f1981d-1e73-4aaf-95fb-ba6e8c2db054">
 
 ### 9. Add remark to a student : `remark`
@@ -272,20 +272,20 @@ Format: `exit`
 
 ### 13. Saving the data
 
-TutorTrack data are saved in the hard disk automatically after any command that changes the data. 
+TutorTrack data are saved in the hard disk automatically after any command that changes the data.
 There is no need to save manually.
 
 ### 14. Editing the data file
 
-TutorTrack data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. 
+TutorTrack data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`.
 Advanced users are welcome to update data directly by editing that data file.
 
 <box type="warning" seamless>
 
 **Caution:**
-If your changes to the data file makes its format invalid, TutorTrack will discard all data and start with an empty 
+If your changes to the data file makes its format invalid, TutorTrack will discard all data and start with an empty
 data file at the next run.  Hence, it is recommended to take a backup of the file before editing it.<br>
-Furthermore, certain edits can cause the AddressBook to behave in unexpected ways (e.g., if a value entered is outside 
+Furthermore, certain edits can cause the AddressBook to behave in unexpected ways (e.g., if a value entered is outside
 the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </box>
 
@@ -295,7 +295,7 @@ the acceptable range). Therefore, edit the data file only if you are confident t
 ## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains 
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains
 the data of your previous Tutor Track home folder.
 
 --------------------------------------------------------------------------------------------------------------------
@@ -303,7 +303,7 @@ the data of your previous Tutor Track home folder.
 ## Known issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only 
-the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the 
+the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the
 application before running the application again.
 
 --------------------------------------------------------------------------------------------------------------------
@@ -313,17 +313,17 @@ application before running the application again.
 
  Action         | Format, Examples                                                                                                                                                                                  
 ----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- **Add**        | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS s/SUBJECT [l/LESSON]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 s/Maths l/Maths \|2024-05-03\|10:30` 
- **Clear**      | `clear`                                                                                                                                                                                           
- **Delete**     | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                                               
- **Edit**       | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [l/LESSON]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                                    
- **Fee Status** | `feestatus INDEX f/FEESTATUS` <br> e.g. `feestatus 1 f/To pay within next 3 days via paynow`                                                                                                                                                                    
- **Find**       | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                        
- **Remark**     | `remark INDEX r/REMARK` <br> e.g., `remark 1 r/Needs extra practice`                                                                                                                              
- **Schedule**   | `schedule INDEX l/LESSON` <br> e.g., `schedule 1 l/ 20-05-2024\|10:30`                                                                                                                            
- **Mark**       | `mark INDEX l/LESSON` <br> e.g. `mark 1 l/09-09-2024\|10:00`                                                                                                                                      
- **List**       | `list`                                                                                                                                                                                            
- **Help**       | `help`                                                                                                                                                                                            
- **Exit**       | `exit`                                                                                                                                                                                            
+ **Add**        | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS s/SUBJECT [l/LESSON]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 s/Maths l/Maths \|2024-05-03\|10:30`
+ **Clear**      | `clear`
+ **Delete**     | `delete INDEX`<br> e.g., `delete 3`
+ **Edit**       | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [l/LESSON]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+ **Fee Status** | `feestatus INDEX f/FEESTATUS` <br> e.g. `feestatus 1 f/To pay within next 3 days via paynow`
+ **Find**       | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
+ **Remark**     | `remark INDEX r/REMARK` <br> e.g., `remark 1 r/Needs extra practice`
+ **Schedule**   | `schedule INDEX l/LESSON` <br> e.g., `schedule 1 l/ 20-05-2024\|10:30`
+ **Mark**       | `mark INDEX l/LESSON` <br> e.g. `mark 1 l/09-09-2024\|10:00`
+ **List**       | `list`
+ **Help**       | `help`
+ **Exit**       | `exit`
 
 
