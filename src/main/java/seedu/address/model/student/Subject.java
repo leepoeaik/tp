@@ -9,9 +9,9 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Subject {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Subjects can only take alphanumeric values and spaces, and it should not be blank";
+            "Subjects can only take alphabetic values and spaces, and it should not be blank";
 
-    public static final String VALIDATION_REGEX = "^[A-Z][a-zA-Z ]*$";
+    public static final String VALIDATION_REGEX = "^[A-Za-z][a-zA-Z ]*$";
 
     public final String value;
 
@@ -22,8 +22,12 @@ public class Subject {
      */
     public Subject(String subject) {
         requireNonNull(subject);
+        if (subject.trim().isEmpty()) {
+            throw new IllegalArgumentException(MESSAGE_CONSTRAINTS);
+        }
+        String formattedSubject = subject.substring(0, 1).toUpperCase() + subject.substring(1).toLowerCase();
         checkArgument(isValidSubject(subject), MESSAGE_CONSTRAINTS);
-        value = subject;
+        this.value = formattedSubject;
     }
     /**
      * Returns true if a given string is a valid subject.
@@ -34,7 +38,7 @@ public class Subject {
 
     @Override
     public String toString() {
-        return value;
+        return this.value;
     }
 
     @Override

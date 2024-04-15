@@ -1,6 +1,4 @@
-
-# _Tutor Track User Guide_ 
-******
+# _TutorTrack User Guide_ 
 
 Tutor Track is a **desktop application for tutors to manage their students and scheduled classes, optimized for use via a 
 Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type 
