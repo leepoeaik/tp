@@ -25,6 +25,8 @@ public class Subject {
         if (subject.trim().isEmpty()) {
             throw new IllegalArgumentException(MESSAGE_CONSTRAINTS);
         }
+
+
         String formattedSubject = subject.substring(0, 1).toUpperCase() + subject.substring(1).toLowerCase();
         checkArgument(isValidSubject(subject), MESSAGE_CONSTRAINTS);
         this.value = formattedSubject;

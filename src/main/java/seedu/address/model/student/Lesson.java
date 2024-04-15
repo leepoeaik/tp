@@ -19,6 +19,7 @@ public class Lesson {
     public static final String MESSAGE_CONSTRAINTS_2 =
             "Lessons must be of the form dd-MM-yyyy|hh:mm OR dd-MM-yyyy|hh:mm|0/1, where the last field of 0 or 1"
                     + " is optional, with 0 indicating lesson incomplete and 1 indicating lesson complete.";
+
     public static final String VALIDATION_REGEX = "^[a-zA-Z][a-zA-Z ]*$";
     public static final String DATE_REGEX = "\\d{2}-\\d{2}-\\d{4}";
     public static final String TIME_REGEX = "\\d{2}:\\d{2}";

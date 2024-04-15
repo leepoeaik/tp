@@ -33,11 +33,12 @@ public class AddCommand extends Command {
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "johnd@example.com "
             + PREFIX_ADDRESS + "311, Clementi Ave 2, #02-25 "
-            + PREFIX_SUBJECT + "Maths "
-            + PREFIX_LESSON + "Maths|01-03-2023|10:00";
+            + PREFIX_SUBJECT + "Maths ";
 
     public static final String MESSAGE_SUCCESS = "New student added: %1$s";
     public static final String MESSAGE_DUPLICATE_STUDENT = "This student already exists in the address book";
+    public static final String MESSAGE_CONSTRAINTS =
+            "Lessons can only be scheduled to an existing student. Add a student first before their lesson!";
 
     private final Student toAdd;
 
