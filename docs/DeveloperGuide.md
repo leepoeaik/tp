@@ -303,20 +303,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | freelance tutor | schedule meeting times with students                   | set lessons                                                               |
 | `* * *`  | freelance tutor | delete meeting times with students                     | cancel lessons                                                            |
 | `* *`    | freelance tutor | edit meeting times with students                       | reschedule lessons                                                        |
-| `* *`    | freelance tutor | view meeting times in a calender view with students    | track when I have scheduled lessons                                       |
-| `*`      | freelance tutor | mark attendance for each week                          | keep an accurate record of student attendance and participation over time |
-| `*`      | freelance tutor | edit milestones on the progress tracker                | change milestone plans anytime                                            |
-| `* *`    | freelance tutor | add milestones to a progress tracker                   | keep track of topics covered                                              |
-| `*`      | student         | access a summary page with my progress information     | keep track of my progress                                                 |
-| `*`      | freelance tutor | view my schedule in a calendar form                    | keep track of lessons for the week/day                                    |
-| `*`      | freelance tutor | view a progress tracking meter                         | have a visual representation of a students progress                       |
-| `* *`    | new user        | create account using email                             | have an account that stores all the information                           |
-| `* *`    | registered user | login to my account                                    | all the information is tracked and stored properly in the account         |
-| `* *`    | freelance tutor | upload files and materials                             | students can access to them                                               |
-| `*`      | student         | download files and materials                           | review and revise the materials                                           |
-| `*`      | freelance tutor | send message to students                               | chat with them                                                            |
-| `*`      | student         | receive message from tutor                             | be informed with any announcements                                        |
-| `*`      | student         | receive notification from messages                     | be aware of messages send by tutors                                       |
 | `*`      | freelance tutor | note down basic lesson plans (remarks) for each lesson | have a structure to follow for each lesson                                |
 
 ### Use cases
@@ -334,12 +320,122 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 1a. The given syntax is incorrect.
+   1a. The given syntax is incorrect.
+        1a1. AddressBook shows an error message.
+        Use case resumes at step 1.
 
-  * 1a1. AddressBook shows an error message.
 
-  Use case resumes at step 1.
+**Use case: UC02 Delete a student**
 
+**MSS**
+
+1.  Tutor requests to list students
+2.  TutorTrack shows a list of students
+3.  Tutor requests to delete a specific student in the list
+4.  TutorTrack deletes the person
+
+    Use case ends.
+
+**Extensions**
+
+  2a. The list is empty.
+
+  Use case ends.
+
+  3a. The given index is invalid.
+    3a1. TutorTrack shows an error message.
+    Use case resumes at step 2.
+
+**Use case: UC03 Add a remark to a student**
+
+**MSS**
+
+1.  User requests to add a remark to a specific student
+2.  TutorTrack adds the remark to the student
+
+    Use case ends.
+
+**Extensions**
+
+  1a. The given index is invalid
+    1a1.TutorTrack shows an error message
+    Use case ends.
+
+  1b. The remark message is empty
+    1b1. TutorTrack shows an error message 
+    Use case ends.
+
+**Use case: UC04 Find a student**
+
+**MSS**
+
+1.  User requests to find a specific student.
+2.  TutorTrack displays a list of students that match the description.
+
+    Use case ends.
+
+**Extensions**
+
+  2a. Student does not exist. 
+    2a1. TutorTrack shows an error message.
+    Use case ends.
+
+**Use case: UC05 Schedule a lesson**
+
+**MSS**
+
+1.  User requests to add a lesson to a student.
+2.  TutorTrack displays the lesson in the student information.
+
+    Use case ends.
+
+**Extensions**
+
+  1a.Student does not exist.
+    1a1. TutorTrack displays a error message.
+    Use case ends.
+    
+  1b. Lesson format is wrong.
+    1b1. TutorTrack shows an error message with the correct format. 
+    Use case ends.
+
+**Use case: UC06 Mark a lesson**
+
+**MSS**
+
+1.  User requests mark a lesson of a student as done.
+2.  TutorTrack displays the student information with the lesson removed.
+
+    Use case ends.
+
+**Extensions**
+
+  1a.Student does not exist.
+    1a1. TutorTrack displays a error message.
+    Use case ends.
+
+  1b. Lesson does not exist for that student. 
+    1b1. TutorTrack shows an error message.
+    Use case ends.
+
+**Use case: UC07 Add a Fee status to a student**
+
+**MSS**
+
+1.  User requests to add a fee status to a specific student.
+2.  TutorTrack adds the fee status to the student.
+
+    Use case ends.
+
+**Extensions**
+
+  1a. The student does not exist.
+    1a1.TutorTrack shows an error message.
+    Use case ends.
+
+  1b. The fee status message is empty.
+    1b1. TutorTrack shows an error message.
+    Use case ends.
 
 
 ### Non-Functional Requirements
