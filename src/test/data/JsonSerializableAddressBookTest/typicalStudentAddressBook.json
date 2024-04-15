@@ -8,7 +8,7 @@
     "subject" : "Maths",
     "remark" : "She likes aardvarks.",
     "feeStatus": "",
-    "lessons" : [ "Maths|10-05-2004|12:29|1", "Physics|11-05-2004|12:29|0" ]
+    "lessons" : [ "Maths|10-05-2004|12:29|1", "Maths|11-05-2004|12:29|0" ]
   }, {
     "name" : "Benson Meier",
     "phone" : "98765432",
@@ -35,7 +35,7 @@
     "subject" : "History",
     "remark" : "",
     "feeStatus": "",
-    "lessons" : [ "Geography|10-05-2004|12:29|0" ]
+    "lessons" : [ "History|10-05-2004|12:29|0" ]
   }, {
     "name" : "Elle Meyer",
     "phone" : "9482224",
@@ -44,7 +44,7 @@
     "subject" : "Psychology",
     "remark" : "",
     "feeStatus": "",
-    "lessons" : [ "Geography|10-05-2004|12:29|1" ]
+    "lessons" : [ "Psychology|10-05-2004|12:29|1" ]
   }, {
     "name" : "Fiona Kunz",
     "phone" : "9482427",

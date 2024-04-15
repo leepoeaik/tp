@@ -32,7 +32,7 @@ public class TypicalStudents {
             .withSubject("Maths")
             .withRemark("She likes aardvarks.")
             .withFeeStatus("Paid.")
-            .withLessons("Maths|10-05-2004|12:29|1", "Physics|11-05-2004|12:29|0")
+            .withLessons("Maths|10-05-2004|12:29|1", "Maths|11-05-2004|12:29|0")
             .build();
     public static final Student BENSON = new StudentBuilder().withName("Benson Meier")
             .withAddress("311, Clementi Ave 2, #02-25")
@@ -45,10 +45,10 @@ public class TypicalStudents {
             .withSubject("English").withLessons("English|10-05-2004|12:29|0")
             .withEmail("heinz@example.com").withAddress("wall street").build();
     public static final Student DANIEL = new StudentBuilder().withName("Daniel Meier").withPhone("87652533")
-            .withSubject("History").withLessons("Geography|10-05-2004|12:29|0")
+            .withSubject("History").withLessons("History|10-05-2004|12:29|0")
             .withEmail("cornelia@example.com").withAddress("10th street").build();
     public static final Student ELLE = new StudentBuilder().withName("Elle Meyer").withPhone("9482224")
-            .withSubject("Psychology").withLessons("Geography|10-05-2004|12:29|1")
+            .withSubject("Psychology").withLessons("Psychology|10-05-2004|12:29|1")
             .withEmail("werner@example.com").withAddress("michegan ave").build();
     public static final Student FIONA = new StudentBuilder().withName("Fiona Kunz").withPhone("9482427")
             .withSubject("English").withLessons("English|10-05-2004|12:29|0")
@@ -59,10 +59,10 @@ public class TypicalStudents {
 
     // Manually added
     public static final Student HOON = new StudentBuilder().withName("Hoon Meier").withPhone("8482424")
-            .withSubject("Music").withLessons("Science|10-05-2004|12:29|1")
+            .withSubject("Music").withLessons("Music|10-05-2004|12:29|1")
             .withEmail("stefan@example.com").withAddress("little india").build();
     public static final Student IDA = new StudentBuilder().withName("Ida Mueller").withPhone("8482131")
-            .withSubject("Dance").withLessons("Maths|10-06-2004|12:29|0")
+            .withSubject("Dance").withLessons("Dance|10-06-2004|12:29|0")
             .withEmail("hans@example.com").withAddress("chicago ave").build();
 
     // Manually added - Student's details found in {@code CommandTestUtil}
