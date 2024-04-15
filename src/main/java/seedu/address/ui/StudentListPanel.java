@@ -29,6 +29,7 @@ public class StudentListPanel extends UiPart<Region> {
         this.mainWindow = mainWindow;
         studentListView.setItems(studentList);
         studentListView.setCellFactory(listView -> {
+            //Solution below inspired by group AY2023/24-T16-1
             StudentListViewCell studentCells = new StudentListViewCell();
             studentCells.setOnMouseClicked(mouseEvent -> {
                 StudentListViewCell clicked = (StudentListViewCell) mouseEvent.getSource();
