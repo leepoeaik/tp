@@ -27,11 +27,11 @@ time.
   - [`Edit` : Editing a student](#4-editing-a-student-edit)
   - [`Find` : Finding a student](#5-locating-students-by-name-find)
   - [`Delete` : Deleting a student](#6-deleting-a-student-delete)
-  - [`Schedule`: Adding a lesson schedule to a student](#7-add-a-lessson-schedule-schedule)
-  - [`Mark`: Marking a lesson as done](#8-mark-a-lessson-schedule-mark)
+  - [`Schedule`: Adding a lesson schedule to a student](#7-add-a-lesson-schedule-schedule)
+  - [`Mark`: Marking a lesson as done](#8-mark-a-lesson-schedule-mark)
   - [`Remark`: Add remark to a student](#9-add-remark-to-a-student-remark)
   - [`Fee status`: Add a fee status for a student](#10-add-a-fee-status-for-a-student-feestatus)
-  - [`Left-click`: View a particular student's lessons](#11-viewing-a-particular-students-lesson-mouse-click)
+  - [`Left-click`: View a particular student's lessons](#11-viewing-a-particular-student-s-lesson-left-click)
   - [`Clear` : Clearing all entries](#12-clearing-all-entries-clear)
   - [`Exit` : Exiting the program](#13-exiting-the-program-exit)
   - [Saving data](#14-saving-the-data)
@@ -259,6 +259,9 @@ Example:
 Simply left-click on the particular student to view his/her lessons on chronological order
 
 ### 12. Clearing all entries : `clear`
+
+> [!WARNING]
+> This command clears all data from TutorTrack
 
 Clears all entries from TutorTrack.
 
