@@ -73,6 +73,12 @@ public class TypicalStudents {
             .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withLessons(VALID_LESSON_BOB)
             .withSubject(VALID_SUBJECT_BOB).withRemark(VALID_REMARK_BOB).build();
 
+    public static final Student BOB_WITHOUT_LESSON = new StudentBuilder().withName(VALID_NAME_BOB)
+            .withPhone(VALID_PHONE_BOB)
+            .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withSubject(VALID_SUBJECT_BOB)
+            .withRemark(VALID_REMARK_BOB).build();
+
+
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 
     private TypicalStudents() {} // prevents instantiation

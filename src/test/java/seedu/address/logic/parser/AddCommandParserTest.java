@@ -7,11 +7,8 @@ import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_LESSON_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.LESSON_DESC_COMPLETED;
-import static seedu.address.logic.commands.CommandTestUtil.LESSON_DESC_INCOMPLETE;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
@@ -23,8 +20,6 @@ import static seedu.address.logic.commands.CommandTestUtil.SUBJECT_DESC_MATHS;
 import static seedu.address.logic.commands.CommandTestUtil.SUBJECT_DESC_SCIENCE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_LESSON_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_LESSON_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_SUBJECT_BOB;
@@ -36,7 +31,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_SUBJECT;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.address.testutil.TypicalStudents.AMY;
-import static seedu.address.testutil.TypicalStudents.BOB;
+import static seedu.address.testutil.TypicalStudents.BOB_WITHOUT_LESSON;
 
 import org.junit.jupiter.api.Test;
 
@@ -44,7 +39,6 @@ import seedu.address.logic.Messages;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.model.student.Address;
 import seedu.address.model.student.Email;
-import seedu.address.model.student.Lesson;
 import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;
 import seedu.address.model.student.Student;
@@ -55,25 +49,18 @@ public class AddCommandParserTest {
 
     @Test
     public void parse_allFieldsPresent_success() {
-        Student expectedStudent = new StudentBuilder(BOB).build();
+        Student expectedStudent = new StudentBuilder(BOB_WITHOUT_LESSON).build();
 
         // whitespace only preamble
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + ADDRESS_DESC_BOB + SUBJECT_DESC_SCIENCE
-                + REMARK_DESC_BOB + LESSON_DESC_COMPLETED, new AddCommand(expectedStudent));
-        // multiple lesson - all accepted
-        Student expectedStudentMultipleLessons = new StudentBuilder(BOB)
-                .withLessons(VALID_LESSON_BOB, VALID_LESSON_AMY).build();
-        assertParseSuccess(parser,
-                NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + SUBJECT_DESC_SCIENCE
-                        + REMARK_DESC_BOB + LESSON_DESC_COMPLETED + LESSON_DESC_INCOMPLETE,
-                new AddCommand(expectedStudentMultipleLessons));
+                + REMARK_DESC_BOB, new AddCommand(expectedStudent));
     }
 
     @Test
     public void parse_repeatedNonLessonValue_failure() {
         String validExpectedStudentString = NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + SUBJECT_DESC_SCIENCE + LESSON_DESC_COMPLETED;
+                + ADDRESS_DESC_BOB + SUBJECT_DESC_SCIENCE;
 
         // multiple names
         assertParseFailure(parser, NAME_DESC_AMY + validExpectedStudentString,
@@ -164,7 +151,7 @@ public class AddCommandParserTest {
 
         // missing address prefix
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + VALID_ADDRESS_BOB
-                + SUBJECT_DESC_MATHS + LESSON_DESC_INCOMPLETE,
+                + SUBJECT_DESC_MATHS,
                 expectedMessage);
 
         // all prefixes missing
@@ -191,10 +178,6 @@ public class AddCommandParserTest {
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + INVALID_ADDRESS_DESC
                 + SUBJECT_DESC_MATHS, Address.MESSAGE_CONSTRAINTS);
 
-        // invalid lesson
-        assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
-                + SUBJECT_DESC_MATHS + INVALID_LESSON_DESC, Lesson.MESSAGE_CONSTRAINTS_1);
-
         // two invalid values, only first invalid value reported
         assertParseFailure(parser, INVALID_NAME_DESC + PHONE_DESC_BOB + EMAIL_DESC_BOB
                         + INVALID_ADDRESS_DESC + SUBJECT_DESC_MATHS,
@@ -202,7 +185,7 @@ public class AddCommandParserTest {
 
         // non-empty preamble
         assertParseFailure(parser, PREAMBLE_NON_EMPTY + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + SUBJECT_DESC_MATHS + REMARK_DESC_BOB + LESSON_DESC_COMPLETED,
+                + ADDRESS_DESC_BOB + SUBJECT_DESC_MATHS + REMARK_DESC_BOB,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
     }
 }
