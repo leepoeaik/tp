@@ -545,7 +545,6 @@ Currently, every new command has to be re-entered, which is time-consuming. <br>
 We plan to have a recents command to display recent commands which can be selected and then modified for minor
 changes as required by the tutor. This can be done by storing recently used commands in an ArrayList data structure.
 
-We
 --------------------------------------------------------------------------------------------------------------------
 
 ### Appendix: Glossary
