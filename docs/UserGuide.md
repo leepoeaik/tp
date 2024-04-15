@@ -102,7 +102,7 @@ be ignored.<br>
 lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </box>
 
-### Viewing help : `help`
+### 1. Viewing help : `help`
 
 Shows a message with a link to access the help page.
 
@@ -111,7 +111,7 @@ Shows a message with a link to access the help page.
 Format: `help`
 
 
-### Adding a Student: `add`
+### 2. Adding a Student: `add`
 
 Adds a student to the address book.
 
@@ -135,14 +135,14 @@ Examples:
 ![addStudentExample.png](addStudentExample.png)
 
 
-### Listing all Students : `list`
+### 3. Listing all Students : `list`
 
 Shows a list of all students in the address book.
 
 Format: `list`
 
 
-### Editing a Student : `edit`
+### 4. Editing a Student : `edit`
 
 Edits an existing student in the address book.
 
@@ -159,7 +159,7 @@ Example:
 *  `edit 1 a/Yale-nus l/` Edits the address of the first person to be `Yale-nus` and clears all existing lessons.
 ![editStudentExample.png](editStudentExample.png)
 
-### Locating students by name: `find`
+### 5. Locating students by name: `find`
 
 Finds persons whose names contain any of the given keywords.
 
@@ -177,7 +177,7 @@ Examples:
 ![findCommandExample.png](findCommandExample.png)
 
 
-### Deleting a Student : `delete`
+### 6. Deleting a Student : `delete`
 
 Deletes the specified person from the address book.
 
@@ -192,7 +192,7 @@ Examples:
 * `find Jessica Jane` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 * Note that upon deletion the full student list is not displayed, for which the `list` command has to be used.
 
-### Add a lesson schedule : `schedule`
+### 7. Add a lesson schedule : `schedule`
 
 Adds a lesson to a specific student.
 
@@ -212,7 +212,7 @@ src="https://github.com/AY2324S2-CS2103T-T16-4/tp/assets/99176866/09b27706-101d-
 
 **Tip:** You must add a student before scheduling their lessons.
 
-### Mark a lesson schedule : `mark`
+### 8. Mark a lesson schedule : `mark`
 
 Mark a lesson as complete to a specific student and removing it from displaying.
 
@@ -231,7 +231,7 @@ Example:
 <img width="1552" alt="image" 
 src="https://github.com/AY2324S2-CS2103T-T16-4/tp/assets/99176866/52f1981d-1e73-4aaf-95fb-ba6e8c2db054">
 
-### Add remark to a student : `remark`
+### 9. Add remark to a student : `remark`
 
 Format : `remark INDEX r/REMARK`
 
@@ -242,7 +242,7 @@ Format : `remark INDEX r/REMARK`
 Example:
 * `remark 1 r/Student is very hardworking` would add a remark to the first student on the student list.
 
-### Add a fee status for a student: `feestatus`
+### 10. Add a fee status for a student: `feestatus`
 
 Format: `feeststatus INDEX f/FEE_STATUS`
 
@@ -254,7 +254,7 @@ Format: `feeststatus INDEX f/FEE_STATUS`
 Example:
 *`feestatus 1 f/Will make payment via paynow within next 3 days`
 
-### Viewing a particular student's lesson : `left-click`
+### 11. Viewing a particular student's lesson : `left-click`
 
 Simply left-click on the particular student to view his/her lessons on chronological order
 
@@ -264,18 +264,18 @@ Clears all entries from TutorTrack.
 
 Format: `clear`
 
-### Exiting the program : `exit`
+### 12. Exiting the program : `exit`
 
 Exits the program.
 
 Format: `exit`
 
-### Saving the data
+### 13. Saving the data
 
 TutorTrack data are saved in the hard disk automatically after any command that changes the data. 
 There is no need to save manually.
 
-### Editing the data file
+### 14. Editing the data file
 
 TutorTrack data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. 
 Advanced users are welcome to update data directly by editing that data file.
