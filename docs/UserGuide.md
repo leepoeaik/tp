@@ -21,21 +21,21 @@ time.
 *********
 - [Quick start](#quick-start)
 - [Features](#features)
-  - [`Help` : Viewing help](#viewing-help--help)
-  - [`Add` : Adding a student](#adding-a-student-add)
-  - [`List` : Listing all students](#listing-all-students--list)
-  - [`Edit` : Editing a student](#editing-a-student--edit)
-  - [`Find` : Finding a student](#locating-students-by-name-find)
-  - [`Delete` : Deleting a student](#deleting-a-student--delete)
-  - [`Schedule`: Adding a lesson schedule to a student](#add-a-lessson-schedule--schedule)
-  - [`Mark`: Marking a lesson as done](#mark-a-lessson-schedule--mark)
-  - [`Remark`: Add remark to a student](#add-remark-to-a-student--remark)
-  - [`Fee status`: Add a fee status for a student](#add-a-fee-status-for-a-student-feestatus)
-  - [`Left-click`: View a particular student's lessons](#viewing-a-particular-students-lesson--mouse-click)
-  - [`Clear` : Clearing all entries](#clearing-all-entries--clear)
-  - [`Exit` : Exiting the program](#exiting-the-program--exit)
-  - [Saving data](#saving-the-data)
-  - [Editing the data file](#editing-the-data-file)
+  - [`Help` : Viewing help](#1-viewing-help--help)
+  - [`Add` : Adding a student](#2-adding-a-student-add)
+  - [`List` : Listing all students](#3-listing-all-students--list)
+  - [`Edit` : Editing a student](#4-editing-a-student--edit)
+  - [`Find` : Finding a student](#5-locating-students-by-name-find)
+  - [`Delete` : Deleting a student](#6-deleting-a-student--delete)
+  - [`Schedule`: Adding a lesson schedule to a student](#7-add-a-lessson-schedule--schedule)
+  - [`Mark`: Marking a lesson as done](#8-mark-a-lessson-schedule--mark)
+  - [`Remark`: Add remark to a student](#9-add-remark-to-a-student--remark)
+  - [`Fee status`: Add a fee status for a student](#10-add-a-fee-status-for-a-student-feestatus)
+  - [`Left-click`: View a particular student's lessons](#11-viewing-a-particular-students-lesson--mouse-click)
+  - [`Clear` : Clearing all entries](#12-clearing-all-entries--clear)
+  - [`Exit` : Exiting the program](#13-exiting-the-program--exit)
+  - [Saving data](#14-saving-the-data)
+  - [Editing the data file](#15-editing-the-data-file)
 - [FAQs](#faq)
 - [Known issues](#known-issues)
 - [Command summary](#command-summary)
@@ -258,24 +258,24 @@ Example:
 
 Simply left-click on the particular student to view his/her lessons on chronological order
 
-### Clearing all entries : `clear`
+### 12. Clearing all entries : `clear`
 
 Clears all entries from TutorTrack.
 
 Format: `clear`
 
-### 12. Exiting the program : `exit`
+### 13. Exiting the program : `exit`
 
 Exits the program.
 
 Format: `exit`
 
-### 13. Saving the data
+### 14. Saving the data
 
 TutorTrack data are saved in the hard disk automatically after any command that changes the data.
 There is no need to save manually.
 
-### 14. Editing the data file
+### 15. Editing the data file
 
 TutorTrack data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`.
 Advanced users are welcome to update data directly by editing that data file.
