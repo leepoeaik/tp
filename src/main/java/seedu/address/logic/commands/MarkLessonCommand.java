@@ -21,14 +21,14 @@ public class MarkLessonCommand extends Command {
     public static final String COMMAND_WORD = "mark";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Marks a lesson of the student identified as completed. "
+            + ": Marks a lesson of the student identified as completed "
             + "by the index number used in the last person listing. "
             + "Parameters: INDEX (must be a positive integer) "
             + "l/ [LESSON]\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + "l/ 20-02-2002|10:00";
 
-    public static final String MESSAGE_MARK_LESSON_SUCCESS = "Mark lesson %1$s to student: %1$s";
+    public static final String MESSAGE_MARK_LESSON_SUCCESS = "Marked lesson %1$s as done to student: ";
     private final Index index;
     private final LocalDate dateDetail;
     private final LocalTime timeDetail;
@@ -72,8 +72,9 @@ public class MarkLessonCommand extends Command {
 
         model.setStudent(studentToEdit, editedStudent);
         model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
+        StringBuilder successMessage = new StringBuilder();
+        successMessage.append(String.format(MESSAGE_MARK_LESSON_SUCCESS, lessonToMarkDone.getLessonValue()));
 
-        return new CommandResult(String.format(MESSAGE_MARK_LESSON_SUCCESS,
-                lessonToMarkDone.getLessonValue(), Messages.format(editedStudent)));
+        return new CommandResult(successMessage.append(studentToEdit.getName().fullName).toString());
     }
 }

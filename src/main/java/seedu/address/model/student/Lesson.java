@@ -48,11 +48,8 @@ public class Lesson {
         this.date = LocalDate.parse(date.format(DATE_FORMATTER), DATE_FORMATTER);
         this.time = time;
         this.isCompleted = 0;
-        // jSON readable form of lesson
-        this.jsonValue = this.subject.value + "|" + this.date.format(DATE_FORMATTER) + "|"
-                + this.time.format(TIME_FORMATTER) + "|" + this.isCompleted;
         // UI displayed form of lesson
-        this.value = this.subject + " " + this.date + " " + this.time;
+        this.value = this.subject + " " + this.date.format(DATE_FORMATTER) + " " + this.time.format(TIME_FORMATTER);
     }
 
     /**
@@ -131,7 +128,8 @@ public class Lesson {
         return value;
     }
     public String getJsonValue() {
-        return jsonValue;
+        return this.subject.value + "|" + this.date.format(DATE_FORMATTER) + "|"
+                + this.time.format(TIME_FORMATTER) + "|" + this.isCompleted;
     }
 
     public void setLessonComplete() {
@@ -166,6 +164,6 @@ public class Lesson {
      * Format state as text for viewing.
      */
     public String toString() {
-        return this.subject + "  " + this.date.toString() + "  " + this.time + " ";
+        return this.subject + "  " + this.date.format(DATE_FORMATTER) + "  " + this.time + " ";
     }
 }
