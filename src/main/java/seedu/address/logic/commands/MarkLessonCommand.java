@@ -21,7 +21,7 @@ public class MarkLessonCommand extends Command {
     public static final String COMMAND_WORD = "mark";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Marks a lesson as completed to the student identified "
+            + ": Marks a lesson of the student identified as completed. "
             + "by the index number used in the last person listing. "
             + "Parameters: INDEX (must be a positive integer) "
             + "l/ [LESSON]\n"
