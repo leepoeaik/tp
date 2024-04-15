@@ -461,13 +461,6 @@ plans (remarks) for each lesson | have a structure to follow for each lesson    
 5.  Documentation should cover at least 90% of system functionality and architecture.
 6.  The system should be able to support a minimum of 100 concurrent users without performance degradation.
 
-
-### Glossary
-
-* **Mainstream OS**: Windows, Linux, Unix, MacOS
-* **Private contact detail**: A contact detail that is not meant to be shared with others
-* **Freelance Tutor**: A tutor that teaches privately, such as a student that teaches on the side
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix: Instructions for manual testing**
@@ -522,3 +515,43 @@ testers are expected to do more *exploratory* testing.
    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
 1. _{ more test cases …​ }_
+
+
+--------------------------------------------------------------------------------------------------------------------
+### Appendix: Planned Enhancements
+Team size: 4
+
+1.Validation of lesson dates:
+Currently, the application validates whether a date and time input have been entered in the specified syntax.
+However, no checks are done to check whether an input date has is a real valid date for a future lesson, since
+past dates are allowed to be entered.<br>
+
+We plan to perform more extensive validation of dates to ensure that past dates are not entered, by making a comparison
+to the current date.
+
+2.Automated lesson scheduling:
+We plan to include a functionality where tutors can input a command for automated lesson scheduling for a student
+every n days for a specified period of time. This allows tutors to add multiple lessons easily without having to
+manually key in commands to create lessons one by one.
+
+3.Reminders for upcoming lessons:
+We plan to implement a functionality for reminder messages if there is an upcoming lesson soon, e.g. in the next 3
+days. This allows tutors to have an automated reminder for lessons once they have been added, reducing their workload
+significantly as they would not have to manually check for upcoming lessons.
+
+4.Recent Commands:
+Currently, every new command has to be re-entered, which is time-consuming. <br>
+
+We plan to have a recents command to display recent commands which can be selected and then modified for minor
+changes as required by the tutor. This can be done by storing recently used commands in an ArrayList data structure.
+
+We
+--------------------------------------------------------------------------------------------------------------------
+
+### Appendix: Glossary
+
+* Mainstream OS: Windows, Linux, Unix, MacOS.
+* Private contact detail: A contact detail that is not meant to be shared with others.
+* Freelance Tutor: A tutor that teaches privately, such as a student that teaches on the side.
+* Fee Status: The status of the payment made/to be made by a student. Can take any alphanumeric value to allow
+  flexibility for the tutor.
