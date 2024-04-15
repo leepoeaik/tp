@@ -38,7 +38,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[github](http://github.com/Chiarena)] [[portfolio](team/johndoe.md)]
 
 * Role: Developer
-* Responsibilities: Deliverables and Deadlines 
+* Responsibilities: Deliverables and Deadlines
 
 ### Safwan Hussein
 

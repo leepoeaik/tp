@@ -281,9 +281,9 @@ _{Explain here how the data archiving feature will be implemented}_
 * prefers typing to mouse interactions
 * prefers to view all their students in a centralized platform instead of across separate apps
 
-**Value proposition**: TutorTrack revolutionizes private tutoring with intuitive keyboard navigation, integrated 
-calendar features, and detailed student profiles. </br> Automated reminders keep tutors organized while robust 
-security measures and responsive support ensure a seamless user experience. </br> Experience efficient student management 
+**Value proposition**: TutorTrack revolutionizes private tutoring with intuitive keyboard navigation, integrated
+calendar features, and detailed student profiles. </br> Automated reminders keep tutors organized while robust
+security measures and responsive support ensure a seamless user experience. </br> Experience efficient student management
 with TutorTrack – the ultimate solution for private tutors.
 
 
