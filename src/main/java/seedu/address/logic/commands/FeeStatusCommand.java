@@ -57,7 +57,7 @@ public class FeeStatusCommand extends Command {
         Student editedStudent = new Student(studentToEdit.getName(),
                 studentToEdit.getPhone(), studentToEdit.getEmail(),
                 studentToEdit.getAddress(), studentToEdit.getSubject(),
-                studentToEdit.getRemark(), studentToEdit.getFeeStatus(),
+                studentToEdit.getRemark(), this.feeStatus,
                 studentToEdit.getLessons());
 
         model.setStudent(studentToEdit, editedStudent);

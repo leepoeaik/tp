@@ -14,12 +14,9 @@ import java.time.format.DateTimeParseException;
  */
 public class Lesson {
     public static final String MESSAGE_CONSTRAINTS_1 =
-            "Lessons must be of the form subject|dd-MM-yyyy|hh:mm|0/1, where subject contains only alphabets"
-                    + " and spaces, and indicate lesson incomplete/completed with 0 or 1 respectively.";
-    public static final String MESSAGE_CONSTRAINTS_2 =
-            "Lessons must be of the form dd-MM-yyyy|hh:mm OR dd-MM-yyyy|hh:mm|0/1, where the last field of 0 or 1"
-                    + " is optional, with 0 indicating lesson incomplete and 1 indicating lesson complete.";
-
+            "Lessons must be of the form subject|dd-MM-yyyy|hh:mm, where subject contains only alphabets"
+                    + " and spaces.";
+  
     public static final String VALIDATION_REGEX = "^[a-zA-Z][a-zA-Z ]*$";
     public static final String DATE_REGEX = "\\d{2}-\\d{2}-\\d{4}";
     public static final String TIME_REGEX = "\\d{2}:\\d{2}";
@@ -49,11 +46,8 @@ public class Lesson {
         this.date = LocalDate.parse(date.format(DATE_FORMATTER), DATE_FORMATTER);
         this.time = time;
         this.isCompleted = 0;
-        // jSON readable form of lesson
-        this.jsonValue = this.subject.value + "|" + this.date.format(DATE_FORMATTER) + "|"
-                + this.time.format(TIME_FORMATTER) + "|" + this.isCompleted;
         // UI displayed form of lesson
-        this.value = this.subject + " " + this.date + " " + this.time;
+        this.value = this.subject + " " + this.date.format(DATE_FORMATTER) + " " + this.time.format(TIME_FORMATTER);
     }
 
     /**
@@ -132,7 +126,8 @@ public class Lesson {
         return value;
     }
     public String getJsonValue() {
-        return jsonValue;
+        return this.subject.value + "|" + this.date.format(DATE_FORMATTER) + "|"
+                + this.time.format(TIME_FORMATTER) + "|" + this.isCompleted;
     }
 
     public void setLessonComplete() {
@@ -167,6 +162,6 @@ public class Lesson {
      * Format state as text for viewing.
      */
     public String toString() {
-        return this.subject + "  " + this.date.toString() + "  " + this.time + " ";
+        return this.subject + "  " + this.date.format(DATE_FORMATTER) + "  " + this.time + " ";
     }
 }
