@@ -106,7 +106,7 @@ lines as space characters surrounding line-breaks may be omitted when copied ove
 
 Shows a message with a link to access the help page.
 
-![help message](images/helpMessage.png)
+![image](https://github.com/AY2324S2-CS2103T-T16-4/tp/assets/99176866/a11e20d0-3263-4911-b367-2a0e156462c0)
 
 Format: `help`
 
