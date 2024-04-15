@@ -16,15 +16,12 @@ public class Lesson {
     public static final String MESSAGE_CONSTRAINTS_1 =
             "Lessons must be of the form subject|dd-MM-yyyy|hh:mm, where subject contains only alphabets"
                     + " and spaces.";
-  
     public static final String VALIDATION_REGEX = "^[a-zA-Z][a-zA-Z ]*$";
     public static final String DATE_REGEX = "\\d{2}-\\d{2}-\\d{4}";
     public static final String TIME_REGEX = "\\d{2}:\\d{2}";
     public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     public static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
-    private String value;
-    private String jsonValue;
-    private final Subject subject;
+    private Subject subject;
     private final LocalDate date;
     private final LocalTime time;
     private int isCompleted;
@@ -46,8 +43,6 @@ public class Lesson {
         this.date = LocalDate.parse(date.format(DATE_FORMATTER), DATE_FORMATTER);
         this.time = time;
         this.isCompleted = 0;
-        // UI displayed form of lesson
-        this.value = this.subject + " " + this.date.format(DATE_FORMATTER) + " " + this.time.format(TIME_FORMATTER);
     }
 
     /**
@@ -121,21 +116,42 @@ public class Lesson {
     public int getLessonStatus() {
         return isCompleted;
     }
-
+    /**
+     * Gets the value of the lesson.
+     *
+     * @return The value.
+     */
     public String getLessonValue() {
-        return value;
+        return this.subject + " " + this.date.format(DATE_FORMATTER) + " " + this.time.format(TIME_FORMATTER);
     }
+    /**
+     * Gets the json value of the lesson.
+     *
+     * @return The json value.
+     */
     public String getJsonValue() {
         return this.subject.value + "|" + this.date.format(DATE_FORMATTER) + "|"
                 + this.time.format(TIME_FORMATTER) + "|" + this.isCompleted;
     }
-
+    /**
+     * Sets the lesson as complete.
+     */
     public void setLessonComplete() {
         this.isCompleted = 1;
     }
-
+    /**
+     * Sets the lesson as incomplete.
+     */
     public void setLessonIncomplete() {
         this.isCompleted = 0;
+    }
+    /**
+     * Sets the new subject of the lesson.
+     *
+     * @param subject The subject.
+     */
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 
     @Override
@@ -150,12 +166,12 @@ public class Lesson {
         }
 
         Lesson otherLesson = (Lesson) other;
-        return value.equals(otherLesson.value);
+        return getLessonValue().equals(otherLesson.getLessonValue());
     }
 
     @Override
     public int hashCode() {
-        return value.hashCode();
+        return getLessonValue().hashCode();
     }
 
     /**

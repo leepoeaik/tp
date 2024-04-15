@@ -105,6 +105,9 @@ public class EditCommand extends Command {
         Remark updatedRemark = studentToEdit.getRemark();
         FeeStatus updatedFeeStatus = studentToEdit.getFeeStatus();
         Subject updatedSubject = editStudentDescriptor.getSubject().orElse(studentToEdit.getSubject());
+        for (Lesson lesson : updatedLessons) {
+            lesson.setSubject(updatedSubject);
+        }
 
         return new Student(updatedName, updatedPhone, updatedEmail, updatedAddress,
                 updatedSubject, updatedRemark, updatedFeeStatus, updatedLessons);
