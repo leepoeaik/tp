@@ -115,7 +115,7 @@ Format: `help`
 
 Adds a student to the address book.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS s/SUBJECT [l/LESSON]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS s/SUBJECT…​`
 
 <box type="tip" seamless>
 
@@ -201,13 +201,16 @@ Format : `schedule INDEX l/LESSON`
 * Adds a lesson to the specified `INDEX`.
 * `INDEX` **must be a positive integer** 1, 2, 3, ...
 * `INDEX` refers to the index number shown in the displayed person list.
-* `LESSON` must be in the format of `dd-mm-yyyy|hh:mm` 
+* `LESSON` must be in the format of `dd-mm-yyyy|hh:mm`
 
 Examples:
 * `schedule 1 l/09-09-2024|10:00` would add a new lesson at 09-09-2024, 10:00 to the first person on the student list.
 
 <img width="1552" alt="image" 
 src="https://github.com/AY2324S2-CS2103T-T16-4/tp/assets/99176866/09b27706-101d-4d7c-b480-4c482c752e31">
+
+
+**Tip:** You must add a student before scheduling their lessons.
 
 ### Mark a lesson schedule : `mark`
 
