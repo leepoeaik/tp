@@ -14,8 +14,8 @@ import java.time.format.DateTimeParseException;
  */
 public class Lesson {
     public static final String MESSAGE_CONSTRAINTS_1 =
-            "Lessons must be of the form subject|dd-MM-yyyy|hh:mm|0/1, where subject contains only alphabets"
-                    + " and spaces, and indicate lesson incomplete/completed with 0 or 1 respectively.";
+            "Lessons must be of the form subject|dd-MM-yyyy|hh:mm, where subject contains only alphabets"
+                    + " and spaces.";
     public static final String MESSAGE_CONSTRAINTS_2 =
             "Lessons must be of the form dd-MM-yyyy|hh:mm OR dd-MM-yyyy|hh:mm|0/1, where the last field of 0 or 1"
                     + " is optional, with 0 indicating lesson incomplete and 1 indicating lesson complete.";
